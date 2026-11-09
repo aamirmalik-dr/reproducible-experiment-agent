@@ -1,0 +1,39 @@
+{
+ "task_id": "ho-08",
+ "family": "heldout",
+ "episode_id": "agent:ho-08:run1",
+ "run_id": "t05",
+ "features": [
+  "ph",
+  "turbidity_ntu",
+  "tank"
+ ],
+ "spec": {
+  "features": [
+   "ph",
+   "turbidity_ntu",
+   "tank"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "linear",
+  "params": {
+   "C": 1.0,
+   "alpha": 0.0001
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.34164,
+  "macro_f1": 0.630303,
+  "accuracy": 0.868852
+ },
+ "artifact_sha256": "fe90e8eded09d2ac128e094206bfdfd76df2c427a67ffbe8f6797ca20c2d03a3",
+ "prediction_sha256": "58f2efd961e1f21fd46bd35fce3f80396143cba084626b165213e1c6bdcb8a5f",
+ "partition_sha256": "d908fed56209e85b9950e90eb1112d5985901f264f6bd614fb9cb5e3869b7a00",
+ "train_dev_sha256": "d1bc3f3ebfe85554bbcb9b9c80e2070f2a7b39596579141d6530320a1f676c36",
+ "package_version": "0.1.0",
+ "justification": "Trial t05 with a linear model and median imputation on features ph, turbidity_ntu, and tank achieved the lowest dev log loss (0.34164), indicating best generalization among tested models.",
+ "manifest_sha256": "7779e2fba58573a4b1ee99198424bdcf7228969c0a32f7b9792abceb3e8e4845"
+}

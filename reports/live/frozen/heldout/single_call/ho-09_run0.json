@@ -1,0 +1,41 @@
+{
+ "task_id": "ho-09",
+ "family": "heldout",
+ "episode_id": "single_call:ho-09:run0",
+ "run_id": "t03",
+ "features": [
+  "feed_rate",
+  "die_gap",
+  "shift_crew"
+ ],
+ "spec": {
+  "features": [
+   "feed_rate",
+   "die_gap",
+   "shift_crew"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 10
+  }
+ },
+ "seed": 3,
+ "dev_metrics": {
+  "mae": 10.619301,
+  "rmse": 13.669254
+ },
+ "artifact_sha256": "1e6913c8f9b80f360a37a9246073b75e669cdbc1b54de2c08fdac995ba1304a1",
+ "prediction_sha256": "e52bcbcedfd65efd9d2680759f6c489b6058705c6f15ae757c2377e779481430",
+ "partition_sha256": "6342578895b1c066926334eff68c1c1d45f2a538ef1a758f00a4288c2dbe5678",
+ "train_dev_sha256": "a3fffa727b26abea087db30d1758757258ec9d198ecb86a403b99feac6bd45a9",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "4f4005170887879f6ae987fcfa21df410e1111c07d6cc87115218c53ce07d0d8"
+}

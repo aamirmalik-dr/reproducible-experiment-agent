@@ -1,0 +1,47 @@
+{
+ "task_id": "ho-06",
+ "family": "heldout",
+ "episode_id": "random_search:ho-06:run1",
+ "run_id": "t04",
+ "features": [
+  "descriptor_01",
+  "descriptor_02",
+  "descriptor_03",
+  "descriptor_04",
+  "descriptor_05",
+  "descriptor_06",
+  "descriptor_07",
+  "descriptor_08",
+  "descriptor_09",
+  "descriptor_10",
+  "descriptor_11",
+  "descriptor_12",
+  "descriptor_13",
+  "descriptor_14",
+  "descriptor_15",
+  "descriptor_16",
+  "spare_sensor"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "mean",
+  "categorical_encoder": "ordinal",
+  "scaler": "robust",
+  "model": "linear",
+  "params": {
+   "alpha": 1.725488
+  }
+ },
+ "seed": 687,
+ "dev_metrics": {
+  "mae": 2.979962,
+  "rmse": 3.711462
+ },
+ "artifact_sha256": "2dd0884224bde6e058b5eb11aefadc9bf69b767ae0f7bfab625f271a7cec4995",
+ "prediction_sha256": "93cfe3e5a99d3eee81209d00379092443aba95a1ddba052050bb9b236ca616ea",
+ "partition_sha256": "f9d304ed195d08215dcc302334bac90f14af910614fce12a3975f712410bb426",
+ "train_dev_sha256": "7f28d23daf19fb473d66af59f0d404792d3b4260bb8d4069d61da26c86637e6d",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "07b9dc4c9904d7a32bec58ddfc68acc1f02f17517a40ea86432360df6d7479fc"
+}

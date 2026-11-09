@@ -1,0 +1,40 @@
+{
+ "task_id": "ho-07",
+ "family": "heldout",
+ "episode_id": "agent:ho-07:run1",
+ "run_id": "t02",
+ "features": [
+  "ph",
+  "turbidity_ntu",
+  "tank"
+ ],
+ "spec": {
+  "features": [
+   "ph",
+   "turbidity_ntu",
+   "tank"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 100,
+   "max_depth": 10,
+   "min_samples_leaf": 10
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.338999,
+  "macro_f1": 0.465839,
+  "accuracy": 0.872093
+ },
+ "artifact_sha256": "3124b24a4ee6cb67139ead520bd5c23046d79f1204e24e9fbc877304285c0848",
+ "prediction_sha256": "5c31fe1c7d94000710432af8bf416b34f3eae47f2e1803f4b2446ee467a8519b",
+ "partition_sha256": "af102d0773cd35e87b6ed11b307b511d9a005fff490d8bcf2fc02a15f7c855b1",
+ "train_dev_sha256": "1b6306a4f36fc6d39d210b850730123fbde3f8df5fb0b8af001ccaac14a1c4c4",
+ "package_version": "0.1.0",
+ "justification": "Random forest model with median imputation, onehot encoding, and standard scaling on ph, turbidity_ntu, and tank features achieved the lowest dev log_loss (0.339), indicating best performance among tried models.",
+ "manifest_sha256": "991f15343967dca937d85d2c1e9e424396f044bb9b48bfae80e7b811af35913c"
+}

@@ -1,0 +1,41 @@
+{
+ "task_id": "ho-09",
+ "family": "heldout",
+ "episode_id": "agent:ho-09:run0",
+ "run_id": "t01",
+ "features": [
+  "feed_rate",
+  "die_gap",
+  "shift_crew"
+ ],
+ "spec": {
+  "features": [
+   "feed_rate",
+   "die_gap",
+   "shift_crew"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 20
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 10.262717,
+  "rmse": 12.916698
+ },
+ "artifact_sha256": "a37c0788206b1e3339cac7201de63221091497942f3b453c5d09644ccebbd9a0",
+ "prediction_sha256": "795b09d7cf0c399409ec3f368199dd437baef4b29dbb04c879767bfb8933b87b",
+ "partition_sha256": "6342578895b1c066926334eff68c1c1d45f2a538ef1a758f00a4288c2dbe5678",
+ "train_dev_sha256": "a3fffa727b26abea087db30d1758757258ec9d198ecb86a403b99feac6bd45a9",
+ "package_version": "0.1.0",
+ "justification": "Trial t01 achieved the lowest dev MAE of 10.2627 with hist_gradient_boosting, outperforming random forest and linear models, so it is the best candidate to freeze.",
+ "manifest_sha256": "4a7e1013c86cd1c33b7dfcb037624b627e7660fdd82e17b19f5eda3ebf73d159"
+}

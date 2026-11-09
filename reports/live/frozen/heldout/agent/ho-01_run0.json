@@ -1,0 +1,42 @@
+{
+ "task_id": "ho-01",
+ "family": "heldout",
+ "episode_id": "agent:ho-01:run0",
+ "run_id": "t01",
+ "features": [
+  "bias_v",
+  "gap_nm",
+  "noise_a",
+  "noise_b",
+  "noise_c",
+  "noise_d",
+  "chamber"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 20
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.452859,
+  "macro_f1": 0.858379,
+  "accuracy": 0.861111
+ },
+ "artifact_sha256": "6148c199caa6889dce345c7bd7c9b2da248789cf50c068e6b5ab25b15ff4cfdd",
+ "prediction_sha256": "0be61af2a18fc069a6a9c910f7f1e702d3091282db9bd31d04a7d29bbde42329",
+ "partition_sha256": "5ce005792235a17087af73d4413ac1b667220d7c0b3169a91d1a0728edc29d1d",
+ "train_dev_sha256": "356e4f5d09093cf0032775603a14f873d1510cc961cea19d98174dc1b9a7919a",
+ "package_version": "0.1.0",
+ "justification": "Trial t01 with hist_gradient_boosting model and tuned parameters achieved the lowest dev log loss of 0.452859, outperforming other trials, so it is the best candidate to freeze.",
+ "manifest_sha256": "ce4f1965fd8d32309fe42e3825a8323288d1b19ee37db64fc8aadf1ac3234ab6"
+}

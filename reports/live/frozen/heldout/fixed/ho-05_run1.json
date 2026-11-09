@@ -1,0 +1,44 @@
+{
+ "task_id": "ho-05",
+ "family": "heldout",
+ "episode_id": "fixed:ho-05:run1",
+ "run_id": "t01",
+ "features": [
+  "descriptor_01",
+  "descriptor_02",
+  "descriptor_03",
+  "descriptor_04",
+  "descriptor_05",
+  "descriptor_06",
+  "descriptor_07",
+  "descriptor_08",
+  "descriptor_09",
+  "descriptor_10",
+  "descriptor_11",
+  "descriptor_12",
+  "descriptor_13",
+  "descriptor_14",
+  "descriptor_15",
+  "descriptor_16"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {}
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 5.03408,
+  "rmse": 6.200325
+ },
+ "artifact_sha256": "3652f2493ad5256c8fa263d1d57a6b7a0f884d98179265bd3bafd56717d6efb0",
+ "prediction_sha256": "d903db016f8a51b461015b020f93da03bde8a9587d30ee6106c46abf53537f98",
+ "partition_sha256": "19dd9b076a1ce966981b472589f952a031ff4921a063062f9f1c2368a2591d9f",
+ "train_dev_sha256": "4edbdfd31d79e8acc181bebe44bbfece2c58e246832ec506db4c674061bd4472",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "600be09a69afc517746185e45b7184b8472dc6d815decb7d9ea4cc74ce4baaf6"
+}

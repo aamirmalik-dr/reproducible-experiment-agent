@@ -1,0 +1,67 @@
+{
+ "task_id": "ho-05",
+ "family": "heldout",
+ "episode_id": "agent:ho-05:run1",
+ "run_id": "t01",
+ "features": [
+  "descriptor_01",
+  "descriptor_02",
+  "descriptor_03",
+  "descriptor_04",
+  "descriptor_05",
+  "descriptor_06",
+  "descriptor_07",
+  "descriptor_08",
+  "descriptor_09",
+  "descriptor_10",
+  "descriptor_11",
+  "descriptor_12",
+  "descriptor_13",
+  "descriptor_14",
+  "descriptor_15",
+  "descriptor_16"
+ ],
+ "spec": {
+  "features": [
+   "descriptor_01",
+   "descriptor_02",
+   "descriptor_03",
+   "descriptor_04",
+   "descriptor_05",
+   "descriptor_06",
+   "descriptor_07",
+   "descriptor_08",
+   "descriptor_09",
+   "descriptor_10",
+   "descriptor_11",
+   "descriptor_12",
+   "descriptor_13",
+   "descriptor_14",
+   "descriptor_15",
+   "descriptor_16"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 20
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 4.77688,
+  "rmse": 6.016011
+ },
+ "artifact_sha256": "82bc49d98b0d7b2d47b8b6aa27b5ad5fa94834bf1bd07a9aee154d231ea6c1cc",
+ "prediction_sha256": "a1b06ab5ec5cc19c8be05a006b04e42d1ef1b7a21a486da2cbdfcf4c04ddd2cf",
+ "partition_sha256": "19dd9b076a1ce966981b472589f952a031ff4921a063062f9f1c2368a2591d9f",
+ "train_dev_sha256": "4edbdfd31d79e8acc181bebe44bbfece2c58e246832ec506db4c674061bd4472",
+ "package_version": "0.1.0",
+ "justification": "Trial t01 with hist_gradient_boosting model achieved the lowest dev MAE of 4.77688, outperforming other trials, so it is the best candidate to freeze for final holdout scoring.",
+ "manifest_sha256": "5661119b04985d9e1d4001caecb0ad3c6878bbca524290d92067f823e1c2ff32"
+}

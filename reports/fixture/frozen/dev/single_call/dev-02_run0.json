@@ -1,0 +1,38 @@
+{
+ "task_id": "dev-02",
+ "family": "dev",
+ "episode_id": "single_call:dev-02:run0",
+ "run_id": "t03",
+ "features": [
+  "cure_temp_c",
+  "humidity_pct",
+  "dwell_min",
+  "additive_pct",
+  "batch_age_days",
+  "supplier"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 150,
+   "min_samples_leaf": 3
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.569282,
+  "macro_f1": 0.692308,
+  "accuracy": 0.694444
+ },
+ "artifact_sha256": "9a8b09171b5e3adff3806cb7dfb093f33eb2ed9ea9d3e1e016f695262abc81a7",
+ "prediction_sha256": "ec33d06ea1dc81b32e0256ca87639b3b9aa55fdae8720cc5d7436c61a1b1e858",
+ "partition_sha256": "aed2b06eef73cd16e3d57a53ee871374097bd0c32e513181cbb10487ae9fd17f",
+ "train_dev_sha256": "2e36bfb1f2c9c6f39694726ce9f530bc656f75826fd509cf44b1d5667aa28abe",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "e31abbfe2e788e5b08be694b34f568cb556512b6c7e94edafb534ed0af83ac5c"
+}

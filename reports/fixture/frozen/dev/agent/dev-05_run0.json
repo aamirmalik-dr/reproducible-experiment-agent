@@ -1,0 +1,33 @@
+{
+ "task_id": "dev-05",
+ "family": "dev",
+ "episode_id": "agent:dev-05:run0",
+ "run_id": "t01",
+ "features": [
+  "load_kn",
+  "cycles_k",
+  "coating",
+  "thickness_um"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {}
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.520027,
+  "macro_f1": 0.764412,
+  "accuracy": 0.764706
+ },
+ "artifact_sha256": "bde473d0b43456cb10c06ee916013f05467e64dd54b3a8ca21b7b3cd10a04bde",
+ "prediction_sha256": "efa295f6064f2f546725088ca227c930a821d3872e48a11741a339326a96bec6",
+ "partition_sha256": "5998d7b8cf2dfe5c40f09199c24a9171ec767c6551736438a7200031a9dca41a",
+ "train_dev_sha256": "65057e148a2a275c5e2b964ed16f620472ff8c73a0679dad16a205f6313e8dff",
+ "package_version": "0.1.0",
+ "justification": "scripted choice, fixed before any result",
+ "manifest_sha256": "b29263d7ac392b40eb4707eb34b96ee1b111cfa026923d185168755f6701f74e"
+}

@@ -1,0 +1,41 @@
+{
+ "task_id": "ho-03",
+ "family": "heldout",
+ "episode_id": "agent:ho-03:run0",
+ "run_id": "t04",
+ "features": [
+  "quench_temp",
+  "cool_rate",
+  "furnace"
+ ],
+ "spec": {
+  "features": [
+   "quench_temp",
+   "cool_rate",
+   "furnace"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 200,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 0.1,
+   "min_samples_leaf": 20
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 8.049484,
+  "rmse": 11.146977
+ },
+ "artifact_sha256": "8ed4950232d1fdacc125477b418455a600ae7b364fd82b6f2f1d923367185190",
+ "prediction_sha256": "c4405a5b5d867dd49e4805d937f1c279e6014289ea57bf9bdbd8f7b070875c46",
+ "partition_sha256": "4d43526844da8d5b9913c58b6de67a74315bbccfdf2d4f301ff2d639c7e00d10",
+ "train_dev_sha256": "7ae7ae996fd1a8bf23d9736e07c15e6b1a7a9b94397363ecf4e61d4384781c49",
+ "package_version": "0.1.0",
+ "justification": "Trial t04 has the lowest dev MAE (8.049) among all tried models, showing best predictive performance with the selected features and parameters.",
+ "manifest_sha256": "d9b0d04346257ded13c100086112501de42c3251bce72c9583d46f5e91569d46"
+}

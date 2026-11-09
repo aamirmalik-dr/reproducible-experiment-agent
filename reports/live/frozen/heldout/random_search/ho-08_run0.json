@@ -1,0 +1,36 @@
+{
+ "task_id": "ho-08",
+ "family": "heldout",
+ "episode_id": "random_search:ho-08:run0",
+ "run_id": "t02",
+ "features": [
+  "ph",
+  "turbidity_ntu",
+  "tank"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "mean",
+  "categorical_encoder": "ordinal",
+  "scaler": "robust",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 35,
+   "max_depth": 3,
+   "min_samples_leaf": 7
+  }
+ },
+ "seed": 207,
+ "dev_metrics": {
+  "log_loss": 0.368988,
+  "macro_f1": 0.455357,
+  "accuracy": 0.836066
+ },
+ "artifact_sha256": "8c91b81ca59e737996a73ee8f07b1cee86d2f177585c25b82189adf20ee875bc",
+ "prediction_sha256": "42626f68c7a7a3306948389817f10c39221860e27dd02e151c17d28127b41409",
+ "partition_sha256": "d908fed56209e85b9950e90eb1112d5985901f264f6bd614fb9cb5e3869b7a00",
+ "train_dev_sha256": "d1bc3f3ebfe85554bbcb9b9c80e2070f2a7b39596579141d6530320a1f676c36",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "f7d31d22f3200a9534a9c6df215ad902c702219a69f91656ecfe532ead897f82"
+}

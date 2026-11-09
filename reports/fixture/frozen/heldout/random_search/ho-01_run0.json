@@ -1,0 +1,42 @@
+{
+ "task_id": "ho-01",
+ "family": "heldout",
+ "episode_id": "random_search:ho-01:run0",
+ "run_id": "t01",
+ "features": [
+  "bias_v",
+  "gap_nm",
+  "noise_a",
+  "noise_b",
+  "noise_c",
+  "noise_d",
+  "chamber"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "mean",
+  "categorical_encoder": "onehot",
+  "scaler": "robust",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.5719083247780296,
+   "max_iter": 64,
+   "max_leaf_nodes": 41,
+   "l2_regularization": 5.4984176784451755,
+   "min_samples_leaf": 6
+  }
+ },
+ "seed": 115,
+ "dev_metrics": {
+  "log_loss": 0.535891,
+  "macro_f1": 0.844797,
+  "accuracy": 0.847222
+ },
+ "artifact_sha256": "875239e8a1bf0516d96bc43a439ce0e72c90b197cb97c667c52b3f8ec2cfaa4e",
+ "prediction_sha256": "9b1d716295e262b94998858d15bc7fcf97bf62f5b605afb6ef6953d3fb19c7f4",
+ "partition_sha256": "5ce005792235a17087af73d4413ac1b667220d7c0b3169a91d1a0728edc29d1d",
+ "train_dev_sha256": "356e4f5d09093cf0032775603a14f873d1510cc961cea19d98174dc1b9a7919a",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "5c7503583e693935f309c587cdd9c7eea4057f18d9758851cafe493a4cc41d47"
+}

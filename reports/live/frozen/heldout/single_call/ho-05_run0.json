@@ -1,0 +1,64 @@
+{
+ "task_id": "ho-05",
+ "family": "heldout",
+ "episode_id": "single_call:ho-05:run0",
+ "run_id": "t06",
+ "features": [
+  "descriptor_01",
+  "descriptor_02",
+  "descriptor_03",
+  "descriptor_04",
+  "descriptor_05",
+  "descriptor_06",
+  "descriptor_07",
+  "descriptor_08",
+  "descriptor_09",
+  "descriptor_10",
+  "descriptor_11",
+  "descriptor_12",
+  "descriptor_13",
+  "descriptor_14",
+  "descriptor_15",
+  "descriptor_16"
+ ],
+ "spec": {
+  "features": [
+   "descriptor_01",
+   "descriptor_02",
+   "descriptor_03",
+   "descriptor_04",
+   "descriptor_05",
+   "descriptor_06",
+   "descriptor_07",
+   "descriptor_08",
+   "descriptor_09",
+   "descriptor_10",
+   "descriptor_11",
+   "descriptor_12",
+   "descriptor_13",
+   "descriptor_14",
+   "descriptor_15",
+   "descriptor_16"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "linear",
+  "params": {
+   "C": 100.0,
+   "alpha": 0.01
+  }
+ },
+ "seed": 6,
+ "dev_metrics": {
+  "mae": 3.195717,
+  "rmse": 4.321352
+ },
+ "artifact_sha256": "42cbdcfb27a482f3cb098b57a0164dc875c02c1d503a2aac1966ec379212bda1",
+ "prediction_sha256": "8cbb8ec3f53a6f1e2223308776e915555d2d5e5fb7bb6610b333c246872c3560",
+ "partition_sha256": "19dd9b076a1ce966981b472589f952a031ff4921a063062f9f1c2368a2591d9f",
+ "train_dev_sha256": "4edbdfd31d79e8acc181bebe44bbfece2c58e246832ec506db4c674061bd4472",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "c1f6aa6401b23b8850ac6e41dfa6ac452d03009718d0ee3ca38d4ad1e6b18f98"
+}

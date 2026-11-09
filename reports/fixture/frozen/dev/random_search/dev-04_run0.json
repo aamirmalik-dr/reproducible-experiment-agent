@@ -1,0 +1,41 @@
+{
+ "task_id": "dev-04",
+ "family": "dev",
+ "episode_id": "random_search:dev-04:run0",
+ "run_id": "t03",
+ "features": [
+  "flow_rate",
+  "pressure",
+  "anneal_time",
+  "dopant_ppm",
+  "grain_size",
+  "test_lab",
+  "spare_sensor"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "zero",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.13097903208807704,
+   "max_iter": 242,
+   "max_leaf_nodes": 35,
+   "l2_regularization": 5.671851552914134,
+   "min_samples_leaf": 16
+  }
+ },
+ "seed": 164,
+ "dev_metrics": {
+  "mae": 12.102358,
+  "rmse": 14.802746
+ },
+ "artifact_sha256": "81e83f01a32d50422bace49751c3219b56cd31385aebeb5c06ffa593975fd42b",
+ "prediction_sha256": "35fa8482249f0f1609580df9a2535bc63e8549fbdfbeefcbddf0f7a3dcb0624e",
+ "partition_sha256": "bc60dbdaa18799fcdb3a952477ba4f81f3ba463ec8054b475185f9b44a5a7ed0",
+ "train_dev_sha256": "13cf5ac000fe76dd9ecbc27b06c9391e96f83c8529ff4066e82166820325afe1",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "76f07096030171f64e8f9019473b594c2ca240aba1da7d80451061885c6dbc1b"
+}

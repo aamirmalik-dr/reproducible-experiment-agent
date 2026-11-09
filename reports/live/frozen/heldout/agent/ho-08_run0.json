@@ -1,0 +1,40 @@
+{
+ "task_id": "ho-08",
+ "family": "heldout",
+ "episode_id": "agent:ho-08:run0",
+ "run_id": "t02",
+ "features": [
+  "ph",
+  "turbidity_ntu",
+  "tank"
+ ],
+ "spec": {
+  "features": [
+   "ph",
+   "turbidity_ntu",
+   "tank"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 100,
+   "max_depth": 10,
+   "min_samples_leaf": 10
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.384213,
+  "macro_f1": 0.455357,
+  "accuracy": 0.836066
+ },
+ "artifact_sha256": "177e119e802b333bdaeb5e34c4dd8754ff617132eacdba9eeab210f740eb021d",
+ "prediction_sha256": "82ac4ccb28e67726a1eae336592bdc2e1fe35c356f51961fd50f4b2927b675de",
+ "partition_sha256": "d908fed56209e85b9950e90eb1112d5985901f264f6bd614fb9cb5e3869b7a00",
+ "train_dev_sha256": "d1bc3f3ebfe85554bbcb9b9c80e2070f2a7b39596579141d6530320a1f676c36",
+ "package_version": "0.1.0",
+ "justification": "Random forest model with median imputation, onehot encoding, no scaling, and tuned hyperparameters achieved the lowest dev log loss (0.384213) among all trials, indicating best generalization performance.",
+ "manifest_sha256": "541a973eb6462b9491d8d65d61e6f091971ab0251c6d83d7aadf8c679aaa604d"
+}

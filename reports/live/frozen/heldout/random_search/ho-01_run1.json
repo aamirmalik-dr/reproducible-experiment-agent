@@ -1,0 +1,40 @@
+{
+ "task_id": "ho-01",
+ "family": "heldout",
+ "episode_id": "random_search:ho-01:run1",
+ "run_id": "t06",
+ "features": [
+  "bias_v",
+  "gap_nm",
+  "noise_a",
+  "noise_b",
+  "noise_c",
+  "noise_d",
+  "chamber"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "zero",
+  "categorical_encoder": "ordinal",
+  "scaler": "robust",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 52,
+   "max_depth": 14,
+   "min_samples_leaf": 17
+  }
+ },
+ "seed": 821,
+ "dev_metrics": {
+  "log_loss": 0.654861,
+  "macro_f1": 0.636364,
+  "accuracy": 0.638889
+ },
+ "artifact_sha256": "d4cb7ffd503760bee3d9109a910662b83d077add942b6abb71684af10a780cd0",
+ "prediction_sha256": "6a0b25f98fb16f7690a485387fc36befca7ae4f434e29858389ad369b55df654",
+ "partition_sha256": "5ce005792235a17087af73d4413ac1b667220d7c0b3169a91d1a0728edc29d1d",
+ "train_dev_sha256": "356e4f5d09093cf0032775603a14f873d1510cc961cea19d98174dc1b9a7919a",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "112cb0b19d895ede5fedda75df97a6c50a097a449d70ecd31ce75fc300a229a3"
+}

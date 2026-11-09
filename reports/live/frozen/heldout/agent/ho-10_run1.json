@@ -1,0 +1,39 @@
+{
+ "task_id": "ho-10",
+ "family": "heldout",
+ "episode_id": "agent:ho-10:run1",
+ "run_id": "t04",
+ "features": [
+  "feed_rate",
+  "die_gap",
+  "shift_crew"
+ ],
+ "spec": {
+  "features": [
+   "feed_rate",
+   "die_gap",
+   "shift_crew"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 150,
+   "max_depth": 15,
+   "min_samples_leaf": 5
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 9.336297,
+  "rmse": 12.549327
+ },
+ "artifact_sha256": "155f193a5d4965743a32f7ac49e258c0681538777ead60fc0a04f0e2ec5150cb",
+ "prediction_sha256": "b8abfb9a2f9f18d6eb6707a04f3a996991ef81c9094da8963e7c14b2e90faf12",
+ "partition_sha256": "e4c32a74933e6c4f6b52a53961c50d18fee5e9fc1a6d82438b41bce76fb267b1",
+ "train_dev_sha256": "5f81bbbf6a35866e1ee89bb71ef401a1314b19e7bd0a9f6c0f29a400c7b3c5fb",
+ "package_version": "0.1.0",
+ "justification": "Best dev MAE (9.336) among tested models with reasonable complexity and consistent feature set; further trials not possible due to budget.",
+ "manifest_sha256": "a06c61f84d77bf960618857ffe3abc54bf7d24539265e5f0af02a6184aee5bee"
+}

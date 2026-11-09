@@ -1,0 +1,41 @@
+{
+ "task_id": "ho-04",
+ "family": "heldout",
+ "episode_id": "agent:ho-04:run1",
+ "run_id": "t01",
+ "features": [
+  "quench_temp",
+  "cool_rate",
+  "furnace"
+ ],
+ "spec": {
+  "features": [
+   "quench_temp",
+   "cool_rate",
+   "furnace"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 20
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 6.71221,
+  "rmse": 8.427879
+ },
+ "artifact_sha256": "a6164d6a678a9627e78416f8e6f5d3582603fc809035557643d623bcdbce1141",
+ "prediction_sha256": "1b9fe2367253bf70df4403ada80e8efad4805c42ec80dcc83b60042c2c6f1357",
+ "partition_sha256": "dcc18a42a4439d88137f915843992ffbce11af7d645e3ac03c783bebdfd26f02",
+ "train_dev_sha256": "0428fd7cc90bd3ca720b7e1e138110d3f447b21def57a07adb175248d4db56f3",
+ "package_version": "0.1.0",
+ "justification": "Trial t01 with hist_gradient_boosting model and tuned parameters achieved the lowest MAE and RMSE, indicating best dev performance among tested trials.",
+ "manifest_sha256": "16dbc80136e5c30a5f26ad15d29902e7b35124878c3c94bad0c43ff3dbddf052"
+}

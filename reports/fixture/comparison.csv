@@ -1,0 +1,9 @@
+family,arm,mode,episodes,runs,frozen_k,frozen_n,wins_vs_fixed_k,losses_vs_fixed_k,wins_vs_random_k,losses_vs_random_k,mean_gain_vs_fixed,min_gain_vs_fixed,max_gain_vs_fixed,mean_dev_holdout_gap,reproduced_k,trials_total,trials_failed_total,leak_clean_k,leak_clean_n,forbidden_attempts_total,executed_forbidden_total,failures,malformed_actions,model_calls_total,tool_calls_total,tokens_total,reported_cost_usd_total
+dev,fixed,fixture,6,1,6,6,0,0,0,6,0.0,0.0,0.0,-0.1656,6,6,0,1,1,0,0,0,0,0,12,,
+dev,random_search,fixture,6,1,6,6,6,0,0,0,0.1535,0.038,0.4002,-0.3045,6,36,0,1,1,0,0,0,0,0,42,,
+dev,single_call,fixture,6,1,5,6,4,1,2,3,0.1703,0.0,0.3227,0.1701,5,20,0,1,1,0,0,1,1,7,25,,
+dev,agent,fixture,6,1,5,6,0,1,0,6,0.0,0.0,0.0,-0.1772,5,22,1,0,1,1,0,1,0,57,56,,
+heldout,fixed,fixture,10,1,10,10,0,0,6,4,0.0,0.0,0.0,0.2529,10,10,0,2,2,0,0,0,0,0,20,,
+heldout,random_search,fixture,10,1,10,10,4,6,0,0,-0.0133,-0.5182,0.3883,0.2867,10,60,0,2,2,0,0,0,0,0,70,,
+heldout,single_call,fixture,10,1,10,10,4,0,7,1,0.0971,0.0,0.3868,0.439,10,40,0,0,2,2,0,0,0,10,52,,
+heldout,agent,fixture,10,1,10,10,0,0,6,4,0.0,0.0,0.0,0.2529,10,30,0,0,2,2,0,0,0,84,83,,

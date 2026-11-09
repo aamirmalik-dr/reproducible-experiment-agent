@@ -1,0 +1,40 @@
+{
+ "task_id": "ho-07",
+ "family": "heldout",
+ "episode_id": "agent:ho-07:run0",
+ "run_id": "t05",
+ "features": [
+  "ph",
+  "turbidity_ntu",
+  "tank"
+ ],
+ "spec": {
+  "features": [
+   "ph",
+   "turbidity_ntu",
+   "tank"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 150,
+   "max_depth": 15,
+   "min_samples_leaf": 3
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.337653,
+  "macro_f1": 0.465839,
+  "accuracy": 0.872093
+ },
+ "artifact_sha256": "83748e2aca46d6752b9612048275cacce3ce80b5eefa0f4feb751fe9e41233ab",
+ "prediction_sha256": "e8dfffb013ff7aacf37e2f9982488c2ac5222dfee5362d37271470631f311fbd",
+ "partition_sha256": "af102d0773cd35e87b6ed11b307b511d9a005fff490d8bcf2fc02a15f7c855b1",
+ "train_dev_sha256": "1b6306a4f36fc6d39d210b850730123fbde3f8df5fb0b8af001ccaac14a1c4c4",
+ "package_version": "0.1.0",
+ "justification": "Random forest with 150 estimators, max depth 15, and min samples leaf 3 achieved the best dev log loss (0.337653), outperforming hist gradient boosting trials; freezing this best-performing trial.",
+ "manifest_sha256": "7ca937b53670cdc360a678143f4b3dccfc10b1649c9e648f17e85629663e4472"
+}
