@@ -66,7 +66,7 @@ def test_headline_table_holds_only_real_measurements() -> None:
     head, scorer = results_table(ev), scorer_table(ev)
     assert "fixture, scripted" not in head
     if ev["modes"]["fixture"] != "pending":
-        assert "| no model |" in head and "fixture, scripted" in scorer
+        assert "| no model, fixture run |" in head and "fixture, scripted" in scorer
 
 
 def test_committed_frozen_candidate_reproduces(monkeypatch: pytest.MonkeyPatch) -> None:

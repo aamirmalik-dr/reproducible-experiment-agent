@@ -152,7 +152,7 @@ def _gain(r: dict[str, Any]) -> str:
 
 def _label(mode: str, arm: str) -> str:
     if arm in NO_MODEL_ARMS:
-        return "no model"
+        return f"no model, {mode} run"
     return "live" if mode == "live" else "fixture, scripted"
 
 
