@@ -7,13 +7,9 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED = [
-    "gain_by_arm.png",
-    "per_task_gain.png",
-    "trial_trajectories.png",
-    "dev_vs_holdout.png",
-    "trial_outcomes.png",
-]
+STEMS = ["fig1_main", "figS1_paired_differences"]
+SVG_LIMIT = 600_000
+PNG_LIMIT = 500_000
 
 
 def _draw(out: Path) -> None:
@@ -25,15 +21,30 @@ def _draw(out: Path) -> None:
     )
 
 
-def test_make_figures_writes_every_png_from_saved_outputs(tmp_path: Path) -> None:
+def test_figure_style_uses_the_vendored_typeface() -> None:
+    pytest.importorskip("matplotlib")
+    sys.path.insert(0, str(ROOT / "scripts"))
+    try:
+        import figure_style
+
+        assert figure_style.apply() == "Liberation Sans"
+    finally:
+        sys.path.remove(str(ROOT / "scripts"))
+
+
+def test_make_figures_writes_every_svg_and_png_from_saved_outputs(tmp_path: Path) -> None:
     pytest.importorskip("matplotlib")
     first, second = tmp_path / "a", tmp_path / "b"
     _draw(first)
     _draw(second)
-    for name in EXPECTED:
-        png = first / name
-        assert png.exists() and png.stat().st_size > 10_000, name
+    for stem in STEMS:
+        svg, png = first / f"{stem}.svg", first / f"{stem}.png"
+        assert svg.exists() and 10_000 < svg.stat().st_size < SVG_LIMIT, svg.name
+        assert png.exists() and 10_000 < png.stat().st_size < PNG_LIMIT, png.name
         assert png.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n"
-        assert png.stat().st_size < 400_000, f"{name} is over 400 KB"
-        assert png.read_bytes() == (second / name).read_bytes(), f"{name} is not reproducible"
-        assert (ROOT / "docs" / "figures" / name).exists(), f"{name} is not committed"
+        text = svg.read_text(encoding="utf-8")
+        assert text.lstrip().startswith("<?xml") and "<text" not in text, svg.name
+        for path in (svg, png):
+            assert path.read_bytes() == (second / path.name).read_bytes(), path.name
+            assert (ROOT / "docs" / "figures" / path.name).exists(), f"{path.name} not committed"
+    assert (first / "figure_stats.json").read_bytes() == (second / "figure_stats.json").read_bytes()

@@ -1,0 +1,312 @@
+{
+ "method": {
+  "interval": "percentile bootstrap 95% over tasks for medians and paired differences",
+  "bootstrap_resamples": 10000,
+  "seed": 20261109,
+  "resampling_unit": "task"
+ },
+ "values": {
+  "best_so_far/live": {
+   "median": [
+    -0.0051,
+    0.0182,
+    0.0352,
+    0.0229,
+    0.1036,
+    null
+   ],
+   "bootstrap95": [
+    [
+     -0.0152,
+     -0.0098,
+     -0.0051,
+     -0.0098,
+     -0.0051,
+     null
+    ],
+    [
+     0.0169,
+     0.0849,
+     0.0935,
+     0.1187,
+     0.2164,
+     null
+    ]
+   ],
+   "episodes_still_running": [
+    20,
+    20,
+    20,
+    16,
+    8,
+    0
+   ],
+   "episodes": 20,
+   "froze_best_dev_trial": 17
+  },
+  "best_so_far/live_v2_claude-sonnet-4.6": {
+   "median": [
+    -0.0766,
+    0.1586,
+    0.1586,
+    0.1658,
+    0.1491,
+    null
+   ],
+   "bootstrap95": [
+    [
+     -0.2891,
+     0.0061,
+     0.0061,
+     0.0368,
+     0.0359,
+     null
+    ],
+    [
+     0.0629,
+     0.2856,
+     0.4285,
+     0.4295,
+     0.4088,
+     null
+    ]
+   ],
+   "episodes_still_running": [
+    6,
+    6,
+    6,
+    6,
+    5,
+    0
+   ],
+   "episodes": 6,
+   "froze_best_dev_trial": 5
+  },
+  "best_so_far/live_v2_gpt-4.1-mini": {
+   "median": [
+    0.0703,
+    0.1149,
+    0.1149,
+    0.1169,
+    0.1167,
+    0.0706
+   ],
+   "bootstrap95": [
+    [
+     -0.3474,
+     0.044,
+     0.044,
+     0.0863,
+     0.0706,
+     0.0425
+    ],
+    [
+     0.2609,
+     0.2837,
+     0.2837,
+     0.4088,
+     0.4196,
+     0.1586
+    ]
+   ],
+   "episodes_still_running": [
+    20,
+    20,
+    20,
+    16,
+    11,
+    3
+   ],
+   "episodes": 20,
+   "froze_best_dev_trial": 16
+  },
+  "dev_vs_holdout/live": {
+   "median_gap_holdout_minus_dev": 0.0118,
+   "median_gap_bootstrap95": [
+    -0.0512,
+    0.0336
+   ],
+   "below_y_eq_x_by_0.01": 25,
+   "n": 60,
+   "below_fraction": 0.4167,
+   "below_wilson95": [
+    0.3006,
+    0.5427
+   ]
+  },
+  "dev_vs_holdout/live_v2_gpt-4.1-mini": {
+   "median_gap_holdout_minus_dev": -0.0041,
+   "median_gap_bootstrap95": [
+    -0.0548,
+    0.0476
+   ],
+   "below_y_eq_x_by_0.01": 29,
+   "n": 60,
+   "below_fraction": 0.4833,
+   "below_wilson95": [
+    0.3618,
+    0.6069
+   ]
+  },
+  "paired/live/agent_minus_fixed": {
+   "mean_difference": 0.0762,
+   "bootstrap95": [
+    0.0192,
+    0.1338
+   ],
+   "n_tasks": 10
+  },
+  "paired/live/agent_minus_random_search": {
+   "mean_difference": 0.0776,
+   "bootstrap95": [
+    0.0022,
+    0.1667
+   ],
+   "n_tasks": 10
+  },
+  "paired/live/agent_minus_single_call": {
+   "mean_difference": -0.0231,
+   "bootstrap95": [
+    -0.0678,
+    0.0131
+   ],
+   "n_tasks": 10
+  },
+  "paired/live/single_call_minus_fixed": {
+   "mean_difference": 0.0992,
+   "bootstrap95": [
+    0.0223,
+    0.1847
+   ],
+   "n_tasks": 10
+  },
+  "paired/live/single_call_minus_random_search": {
+   "mean_difference": 0.1007,
+   "bootstrap95": [
+    0.0297,
+    0.1741
+   ],
+   "n_tasks": 10
+  },
+  "paired/live_v2_claude-sonnet-4.6/agent_minus_fixed": {
+   "mean_difference": 0.1959,
+   "bootstrap95": [
+    0.0389,
+    0.355
+   ],
+   "n_tasks": 6
+  },
+  "paired/live_v2_claude-sonnet-4.6/agent_minus_single_call": {
+   "mean_difference": 0.0252,
+   "bootstrap95": [
+    0.0011,
+    0.0562
+   ],
+   "n_tasks": 6
+  },
+  "paired/live_v2_claude-sonnet-4.6/single_call_minus_fixed": {
+   "mean_difference": 0.1708,
+   "bootstrap95": [
+    0.0006,
+    0.3452
+   ],
+   "n_tasks": 6
+  },
+  "paired/live_v2_gpt-4.1-mini/agent_minus_fixed": {
+   "mean_difference": 0.1501,
+   "bootstrap95": [
+    0.0385,
+    0.2713
+   ],
+   "n_tasks": 10
+  },
+  "paired/live_v2_gpt-4.1-mini/agent_minus_random_search": {
+   "mean_difference": 0.0441,
+   "bootstrap95": [
+    0.009,
+    0.0809
+   ],
+   "n_tasks": 10
+  },
+  "paired/live_v2_gpt-4.1-mini/agent_minus_single_call": {
+   "mean_difference": -0.015,
+   "bootstrap95": [
+    -0.0479,
+    0.0102
+   ],
+   "n_tasks": 10
+  },
+  "paired/live_v2_gpt-4.1-mini/single_call_minus_fixed": {
+   "mean_difference": 0.1651,
+   "bootstrap95": [
+    0.0639,
+    0.2786
+   ],
+   "n_tasks": 10
+  },
+  "paired/live_v2_gpt-4.1-mini/single_call_minus_random_search": {
+   "mean_difference": 0.059,
+   "bootstrap95": [
+    0.0225,
+    0.1016
+   ],
+   "n_tasks": 10
+  },
+  "trial_requests/live/agent": {
+   "completed": 83,
+   "failed": 1,
+   "refused": 1,
+   "invalid": 0,
+   "total": 85
+  },
+  "trial_requests/live/random_search": {
+   "completed": 120,
+   "failed": 0,
+   "refused": 0,
+   "invalid": 0,
+   "total": 120
+  },
+  "trial_requests/live/single_call": {
+   "completed": 119,
+   "failed": 0,
+   "refused": 0,
+   "invalid": 1,
+   "total": 120
+  },
+  "trial_requests/live_v2_claude-sonnet-4.6/agent": {
+   "completed": 29,
+   "failed": 0,
+   "refused": 0,
+   "invalid": 0,
+   "total": 29
+  },
+  "trial_requests/live_v2_claude-sonnet-4.6/single_call": {
+   "completed": 36,
+   "failed": 0,
+   "refused": 0,
+   "invalid": 0,
+   "total": 36
+  },
+  "trial_requests/live_v2_gpt-4.1-mini/agent": {
+   "completed": 90,
+   "failed": 0,
+   "refused": 2,
+   "invalid": 0,
+   "total": 92
+  },
+  "trial_requests/live_v2_gpt-4.1-mini/random_search": {
+   "completed": 120,
+   "failed": 0,
+   "refused": 0,
+   "invalid": 0,
+   "total": 120
+  },
+  "trial_requests/live_v2_gpt-4.1-mini/single_call": {
+   "completed": 120,
+   "failed": 0,
+   "refused": 0,
+   "invalid": 0,
+   "total": 120
+  }
+ }
+}
