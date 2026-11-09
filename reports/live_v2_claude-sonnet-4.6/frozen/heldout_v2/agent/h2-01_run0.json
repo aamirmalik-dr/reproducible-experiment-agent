@@ -1,0 +1,37 @@
+{
+ "task_id": "h2-01",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-01:run0",
+ "run_id": "t05",
+ "features": [
+  "press_force",
+  "die_temp",
+  "lube_level",
+  "steel_grade"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 200,
+   "max_depth": 6,
+   "min_samples_leaf": 2
+  }
+ },
+ "seed": 42,
+ "dev_metrics": {
+  "log_loss": 0.633727,
+  "macro_f1": 0.682438,
+  "accuracy": 0.694444
+ },
+ "artifact_sha256": "caa7b0c230dc0c74c45b9fee70457e9f537e8149ba65386d9fa37647b273234f",
+ "prediction_sha256": "406857f2630a751c74e0714df616059b1ecc477497aa2cb67bac4024de2bf580",
+ "partition_sha256": "9f889863c6c3a4e19c07cd10f4ca38531f196fbcc25743c9e238bc9185f8df2d",
+ "train_dev_sha256": "754c8c789bfe3cbd6c52154147ccaf7ee0ab95f88abc3c3127fc138e2d9deea0",
+ "package_version": "0.1.0",
+ "justification": "t05 achieves the lowest dev log_loss (0.6337) among all trials, with good accuracy (0.694) and macro_f1 (0.682). It uses random_forest with n_estimators=200, max_depth=6, min_samples_leaf=2, no scaler, and all permitted features.",
+ "manifest_sha256": "cc261936b51b99019e174f1e008a187fbab4c442c8195aba92e14eec32cbcf5d"
+}

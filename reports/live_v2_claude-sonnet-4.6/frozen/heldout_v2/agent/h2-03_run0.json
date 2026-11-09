@@ -1,0 +1,47 @@
+{
+ "task_id": "h2-03",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-03:run0",
+ "run_id": "t05",
+ "features": [
+  "catalyst_dose",
+  "bath_temp",
+  "aux_1",
+  "aux_2",
+  "aux_3",
+  "reactor"
+ ],
+ "spec": {
+  "features": [
+   "catalyst_dose",
+   "bath_temp",
+   "aux_1",
+   "aux_2",
+   "aux_3",
+   "reactor"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.03,
+   "max_iter": 300,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 0.1,
+   "min_samples_leaf": 5
+  }
+ },
+ "seed": 7,
+ "dev_metrics": {
+  "mae": 2.447643,
+  "rmse": 3.171707
+ },
+ "artifact_sha256": "5ca353117b3b61884c1c92ae34138b0ae81654554862f142911d031881dd9837",
+ "prediction_sha256": "8b6ba2131a83d287c683b4dc0007f453f0e8cef7a40739572996eb4f4c77f93e",
+ "partition_sha256": "9d67d377ae750c609731d9303f1d0074bef21bfec63fef8bd8da8ff48970f336",
+ "train_dev_sha256": "013e623daf1677c9f840d7aeb79aa62cf0eb3506da0f4dbe61d4519edf7db26b",
+ "package_version": "0.1.0",
+ "justification": "t05 achieves the lowest dev MAE (2.4476) and RMSE (3.1717) among all trials, using hist_gradient_boosting with conservative learning rate 0.03, 300 iterations, 31 max_leaf_nodes, and light regularization. It outperforms random_forest (t02: 2.521) and the other HGB run (t04: 2.498), and is clearly better than linear (t03: 4.399).",
+ "manifest_sha256": "6be3662a20f6fb0326566b7b2f8ce6e0e0a4dc3345a4f3fdb81ff53ffede3109"
+}

@@ -1,0 +1,38 @@
+{
+ "task_id": "h2-08",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-08:run0",
+ "run_id": "t04",
+ "features": [
+  "line_speed",
+  "humidity_idx",
+  "crew_shift"
+ ],
+ "spec": {
+  "features": [
+   "line_speed",
+   "humidity_idx",
+   "crew_shift"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "linear",
+  "params": {
+   "C": 10.0,
+   "alpha": 0.001
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 1.784545,
+  "rmse": 2.405885
+ },
+ "artifact_sha256": "235e71fb288f1e5587c2ba2cba3325b8a02984e84f204ed0d7a5b91193ff7226",
+ "prediction_sha256": "843d1373ba58a4cd278a064d943d5ad0ec4e017889fea77687734a771d5da86f",
+ "partition_sha256": "19d84089c72c7b6fa3445d3324a2e1d820e88576be409d0dd5757b12c5ea23fd",
+ "train_dev_sha256": "2ca2c6d829d32a6faf0c3813f7062995954deff70e9ae1e8d897cc7a37f93619",
+ "package_version": "0.1.0",
+ "justification": "Trial t04 with linear model achieved the lowest dev MAE of 1.784545, outperforming random forest and hist gradient boosting trials, making it the best candidate to freeze.",
+ "manifest_sha256": "f36e2bf9ce8ec6967bf2af640bb9953a4372fb4c927c94cf793ae8179fb0daf0"
+}

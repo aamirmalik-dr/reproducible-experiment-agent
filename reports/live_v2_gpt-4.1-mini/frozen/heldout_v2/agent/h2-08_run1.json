@@ -1,0 +1,38 @@
+{
+ "task_id": "h2-08",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-08:run1",
+ "run_id": "t01",
+ "features": [
+  "line_speed",
+  "humidity_idx",
+  "crew_shift"
+ ],
+ "spec": {
+  "features": [
+   "line_speed",
+   "humidity_idx",
+   "crew_shift"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "linear",
+  "params": {
+   "C": 1.0,
+   "alpha": 0.0001
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 1.784546,
+  "rmse": 2.405884
+ },
+ "artifact_sha256": "4ec1c4e34639e6a409a7829f788717aaf849c7e900ef86417835d60d841fd82f",
+ "prediction_sha256": "dfcd9ef4f224bf0107eba4ff24599e0736c9899ba880950a1c4417dfccfab12d",
+ "partition_sha256": "19d84089c72c7b6fa3445d3324a2e1d820e88576be409d0dd5757b12c5ea23fd",
+ "train_dev_sha256": "2ca2c6d829d32a6faf0c3813f7062995954deff70e9ae1e8d897cc7a37f93619",
+ "package_version": "0.1.0",
+ "justification": "Linear model with median imputation, onehot encoding, and standard scaling achieved the lowest dev MAE of 1.784546, outperforming random forest and gradient boosting trials.",
+ "manifest_sha256": "ce66d23eb3b0d16d85068780c64fb042f804c324250d349a235b8250cca9797e"
+}

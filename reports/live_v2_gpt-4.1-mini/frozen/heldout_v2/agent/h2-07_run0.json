@@ -1,0 +1,39 @@
+{
+ "task_id": "h2-07",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-07:run0",
+ "run_id": "t02",
+ "features": [
+  "line_speed",
+  "humidity_idx",
+  "crew_shift"
+ ],
+ "spec": {
+  "features": [
+   "line_speed",
+   "humidity_idx",
+   "crew_shift"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 100,
+   "max_depth": 10,
+   "min_samples_leaf": 5
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 1.799124,
+  "rmse": 2.499981
+ },
+ "artifact_sha256": "053d144058242e14552508df05c95f40900808cd51056c3c4c13a1f542a4ddf6",
+ "prediction_sha256": "fcc604f50b188d55ad1086490732a934500be77117146c17f27fe32ec0dc603d",
+ "partition_sha256": "ad08e234010dca2dd76070007c0d22fc48a292377fe86e00bfcda532551aa4ce",
+ "train_dev_sha256": "7af673945dfd2d739c8027a7d5b3a025606a4ea8f4501d8332bf112a4f03eb45",
+ "package_version": "0.1.0",
+ "justification": "Random forest model t02 has the lowest MAE on dev set compared to hist_gradient_boosting and linear models, indicating best performance among tried models.",
+ "manifest_sha256": "e91b9ede26694b3f420c0b130b227b8a4a047c48b5fe785db43aa0fe93e494bd"
+}

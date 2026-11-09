@@ -1,0 +1,40 @@
+{
+ "task_id": "h2-03",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-03:run0",
+ "run_id": "t01",
+ "features": [
+  "catalyst_dose",
+  "bath_temp",
+  "aux_1",
+  "aux_2",
+  "aux_3",
+  "reactor"
+ ],
+ "spec": {
+  "features": "all_permitted",
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.05,
+   "max_iter": 200,
+   "max_leaf_nodes": 32,
+   "l2_regularization": 0.1,
+   "min_samples_leaf": 10
+  }
+ },
+ "seed": 42,
+ "dev_metrics": {
+  "mae": 2.494735,
+  "rmse": 3.231792
+ },
+ "artifact_sha256": "c31c5c346a730b4af928befbf15a879c7af7d936ac4f5b7c2720d7a15e4413a4",
+ "prediction_sha256": "e89c72cb923e6e992ef37ed66724855342cece833478d25000cd27299965d37d",
+ "partition_sha256": "9d67d377ae750c609731d9303f1d0074bef21bfec63fef8bd8da8ff48970f336",
+ "train_dev_sha256": "013e623daf1677c9f840d7aeb79aa62cf0eb3506da0f4dbe61d4519edf7db26b",
+ "package_version": "0.1.0",
+ "justification": "HGB achieved the lowest dev MAE (2.495) across all three model families tested, outperforming random forest (2.521) and linear regression (4.399). With only 3 trials left and limited compute, the current best is reliable enough to freeze.",
+ "manifest_sha256": "61aaba0d6b1cf8560f2b832c42c4df7238bf8e2d1ef7d27973fe6ed01b5c53ac"
+}

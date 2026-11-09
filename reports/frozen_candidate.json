@@ -29,7 +29,7 @@
  "prediction_sha256": "125a3732206093fa75c1a6aa36cd368e08d999e5c4364be12df3f33d31c78a9a",
  "partition_sha256": "aed2b06eef73cd16e3d57a53ee871374097bd0c32e513181cbb10487ae9fd17f",
  "train_dev_sha256": "2e36bfb1f2c9c6f39694726ce9f530bc656f75826fd509cf44b1d5667aa28abe",
- "package_version": "0.1.0",
+ "package_version": "0.2.0",
  "justification": "scripted choice, fixed before any result",
- "manifest_sha256": "65e63ca40572b32046c99511fa8feecfe2609bc7863efe3ac458779a9b93af51"
+ "manifest_sha256": "cfac6b5407feb66f0312e9a3131a8fdb782b2de6d02587ed991832d53fc7b7fd"
 }

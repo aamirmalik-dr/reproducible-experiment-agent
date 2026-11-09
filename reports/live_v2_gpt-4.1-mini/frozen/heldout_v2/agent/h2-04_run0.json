@@ -1,0 +1,47 @@
+{
+ "task_id": "h2-04",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-04:run0",
+ "run_id": "t03",
+ "features": [
+  "catalyst_dose",
+  "bath_temp",
+  "aux_1",
+  "aux_2",
+  "aux_3",
+  "reactor"
+ ],
+ "spec": {
+  "features": [
+   "catalyst_dose",
+   "bath_temp",
+   "aux_1",
+   "aux_2",
+   "aux_3",
+   "reactor"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 100,
+   "max_leaf_nodes": 31,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 20
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 2.07531,
+  "rmse": 3.088969
+ },
+ "artifact_sha256": "bdd3329f661d1867ac4abc5a9c2faa8a2fae14e026aa99672c84be199f4dcfe0",
+ "prediction_sha256": "56c4de95ff555c541093f6beb01fd91c013ca7ee7905be5968d5fc4b0a3d1f9f",
+ "partition_sha256": "07c9ecdf13528e7f4da998b8eb89e4dd2faf88f115aab4529fbbfa0761a5b588",
+ "train_dev_sha256": "8c77dbf18be274699e3de7fcb00c6f9986a397865c8d4929953e84dd68d0679c",
+ "package_version": "0.1.0",
+ "justification": "Hist gradient boosting achieved the lowest dev MAE of 2.07531, better than random forest and linear models, indicating best predictive performance on this regression task.",
+ "manifest_sha256": "6e2ab4bab59c70f95809586343593ff546f3e4c7df9d9e7ca1bc9d29a8f1d755"
+}

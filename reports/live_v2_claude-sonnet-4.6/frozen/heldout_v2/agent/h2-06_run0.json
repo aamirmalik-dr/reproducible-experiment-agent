@@ -1,0 +1,40 @@
+{
+ "task_id": "h2-06",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-06:run0",
+ "run_id": "t03",
+ "features": [
+  "frac_a",
+  "frac_b",
+  "frac_c",
+  "anneal_k"
+ ],
+ "spec": {
+  "features": [
+   "frac_a",
+   "frac_b",
+   "frac_c",
+   "anneal_k"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "linear",
+  "params": {
+   "C": 1.0
+  }
+ },
+ "seed": 42,
+ "dev_metrics": {
+  "log_loss": 0.488581,
+  "macro_f1": 0.787828,
+  "accuracy": 0.791667
+ },
+ "artifact_sha256": "ba068bfd7b5f0ccc35d59ddcaed6d9707805ecde0d2bf6557be56bed895c485a",
+ "prediction_sha256": "aed9322d9dc1a99811d911237914bb12fcd9aa37331040cf49da883de93aa818",
+ "partition_sha256": "5b7b95a673ec9a365de856c2b777b084d15ed16c07f93709ef0000ce88f5332c",
+ "train_dev_sha256": "db40f96dc0216e71d1f3c0dd126b5683528574a0dc76d952549b6b1659927c0e",
+ "package_version": "0.1.0",
+ "justification": "t03 achieves the lowest dev log_loss of 0.4886 using linear model with C=1.0 on the 4 key features, outperforming random forest (0.5187) and higher-C linear variants (0.4895, 0.4900).",
+ "manifest_sha256": "f20fa4b99faf0e4f0d6e89c328dc732dbacfe24b322e931c37d3edfe052ff2f9"
+}

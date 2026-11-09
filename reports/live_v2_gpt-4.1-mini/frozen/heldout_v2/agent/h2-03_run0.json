@@ -1,0 +1,45 @@
+{
+ "task_id": "h2-03",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-03:run0",
+ "run_id": "t04",
+ "features": [
+  "catalyst_dose",
+  "bath_temp",
+  "aux_1",
+  "aux_2",
+  "aux_3",
+  "reactor"
+ ],
+ "spec": {
+  "features": [
+   "catalyst_dose",
+   "bath_temp",
+   "aux_1",
+   "aux_2",
+   "aux_3",
+   "reactor"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 150,
+   "max_depth": 15,
+   "min_samples_leaf": 3
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "mae": 2.423521,
+  "rmse": 3.11607
+ },
+ "artifact_sha256": "2d255fb618ba9f9f11b753f72c66b9b718f44ca588aeb3b9706f812c67418c7a",
+ "prediction_sha256": "ae0c8b7e82eee3ebf00158472c6b68e80232a057b60829b67e4611c20cca7ad7",
+ "partition_sha256": "9d67d377ae750c609731d9303f1d0074bef21bfec63fef8bd8da8ff48970f336",
+ "train_dev_sha256": "013e623daf1677c9f840d7aeb79aa62cf0eb3506da0f4dbe61d4519edf7db26b",
+ "package_version": "0.1.0",
+ "justification": "Random forest model achieved the lowest dev MAE (2.423521) compared to hist_gradient_boosting and linear models, indicating best performance on dev data.",
+ "manifest_sha256": "e5efd3a9e4436850955fe160393fd7ce4154f12076bf12eb2abbf4a343784815"
+}

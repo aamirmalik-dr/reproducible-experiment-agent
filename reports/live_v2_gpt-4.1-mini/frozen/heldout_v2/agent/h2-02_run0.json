@@ -1,0 +1,42 @@
+{
+ "task_id": "h2-02",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-02:run0",
+ "run_id": "t02",
+ "features": [
+  "press_force",
+  "die_temp",
+  "lube_level",
+  "steel_grade"
+ ],
+ "spec": {
+  "features": [
+   "press_force",
+   "die_temp",
+   "lube_level",
+   "steel_grade"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 50,
+   "max_depth": 10,
+   "min_samples_leaf": 5
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.669735,
+  "macro_f1": 0.568696,
+  "accuracy": 0.569444
+ },
+ "artifact_sha256": "a8e333343ad49b37b2cd37efad5c23fa3083c73d262d230239c25ed8e8d7f3da",
+ "prediction_sha256": "d6b9693cc56db2ca0b8b591e381a85eb1716f508c889a7fa042ce68692ac8b3d",
+ "partition_sha256": "64a49649387b019ea7c0eec7a5c020ff854e6b626f4aa4358dcc58b168148ccc",
+ "train_dev_sha256": "1947af5fcfd1cfb040ed0329e8edf4c392f83d7049446f8571b278c4f727c9c1",
+ "package_version": "0.1.0",
+ "justification": "Random forest model t02 achieved the lowest dev log loss (0.6697) compared to hist_gradient_boosting and linear models, indicating better generalization performance on dev data.",
+ "manifest_sha256": "7c2edb6e58dd67c63e5f7e1aa3df57f8d7df324276c1391e357f82c69c2fb12f"
+}

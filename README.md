@@ -39,7 +39,14 @@ python -m pytest
 
 ## Results
 
-Live pilot, 2026-11-09: the ten held-out tasks, two runs each, `openai/gpt-4.1-mini` through OpenRouter at temperature 0, every arm on the same tasks and runs. Gains are relative to the fixed pipeline on the primary holdout metric (log loss or MAE), `(fixed - arm) / fixed`, so positive is better. A win or loss needs a difference above 1 percent. Everything below was declared in [docs/evaluation.md](docs/evaluation.md) before the run. The table holds real measurements only: the two no-model baselines, from the fixture run (one run over both families) and from the live run (two runs; random search is reseeded per run), and the live LLM rows.
+Two rounds of live runs, all on 2026-11-09, every arm on the same tasks and runs at temperature 0, through OpenRouter. Gains are relative to the fixed pipeline on the primary holdout metric (log loss or MAE), `(fixed - arm) / fixed`, so positive is better; a win or loss needs a difference above 1 percent. Metrics and rules were declared in [docs/evaluation.md](docs/evaluation.md) before each run.
+
+- **v1:** held-out v1 family (10 tasks), two runs, `openai/gpt-4.1-mini`, all four arms.
+- **v2:** held-out v2 family (10 new tasks from five generators no prompt or fix had seen). Run A: `openai/gpt-4.1-mini`, two runs, all four arms. Run B: `anthropic/claude-sonnet-4.6`, one run, single call and agent (the no-model baselines of run B equal run A's first run and are not repeated in the table).
+
+What changed between v1 and v2, and why: both planners are now told that unused trials are not refunded and to try each of the three model families before freezing, because the v1 agent never tried the linear family in 12 of 20 episodes, and specs that repeat a column are rejected, because one v1 trial was lost to that. Both changes were committed before the v2 tasks were generated, and nothing was tuned after.
+
+The table holds real measurements only: no-model baselines and live LLM rows, each labelled with its round and model.
 
 <!-- results-table:start -->
 | Mode | Family | Arm | Frozen | Mean gain vs fixed (min to max) | Wins / losses vs fixed | Wins / losses vs random search | Reproduced | Leak-clean episodes | Refused columns (executed) | Failed trials | Tokens | USD (provider) |
@@ -48,13 +55,19 @@ Live pilot, 2026-11-09: the ten held-out tasks, two runs each, `openai/gpt-4.1-m
 | no model, fixture run | dev | random_search | 6/6 | +0.153 (+0.038 to +0.400) | 6 / 0 | 0 / 0 | 6/6 | 1/1 | 0 (0) | 0 | 0 | 0 |
 | no model, fixture run | heldout | fixed | 10/10 | +0.000 (+0.000 to +0.000) | 0 / 0 | 6 / 4 | 10/10 | 2/2 | 0 (0) | 0 | 0 | 0 |
 | no model, fixture run | heldout | random_search | 10/10 | -0.013 (-0.518 to +0.388) | 4 / 6 | 0 / 0 | 10/10 | 2/2 | 0 (0) | 0 | 0 | 0 |
-| no model, live run | heldout | fixed | 20/20 | +0.000 (+0.000 to +0.000) | 0 / 0 | 9 / 10 | 20/20 | 4/4 | 0 (0) | 0 | 0 | 0 |
-| no model, live run | heldout | random_search | 20/20 | -0.001 (-0.518 to +0.388) | 10 / 9 | 0 / 0 | 20/20 | 4/4 | 0 (0) | 0 | 0 | 0 |
-| live | heldout | single_call | 20/20 | +0.099 (-0.081 to +0.386) | 11 / 5 | 13 / 3 | 20/20 | 4/4 | 0 (0) | 0 | 39456 | 0.0243 |
-| live | heldout | agent | 20/20 | +0.076 (-0.099 to +0.386) | 10 / 5 | 10 / 6 | 20/20 | 3/4 | 1 (0) | 1 | 296195 | 0.1197 |
+| no model, live v1 run | heldout | fixed | 20/20 | +0.000 (+0.000 to +0.000) | 0 / 0 | 9 / 10 | 20/20 | 4/4 | 0 (0) | 0 | 0 | 0 |
+| no model, live v1 run | heldout | random_search | 20/20 | -0.001 (-0.518 to +0.388) | 10 / 9 | 0 / 0 | 20/20 | 4/4 | 0 (0) | 0 | 0 | 0 |
+| live v1, gpt-4.1-mini | heldout | single_call | 20/20 | +0.099 (-0.081 to +0.386) | 11 / 5 | 13 / 3 | 20/20 | 4/4 | 0 (0) | 0 | 39456 | 0.0243 |
+| live v1, gpt-4.1-mini | heldout | agent | 20/20 | +0.076 (-0.099 to +0.386) | 10 / 5 | 10 / 6 | 20/20 | 3/4 | 1 (0) | 1 | 296195 | 0.1197 |
+| no model, live v2 run | heldout_v2 | fixed | 20/20 | +0.000 (+0.000 to +0.000) | 0 / 0 | 6 / 14 | 20/20 | 4/4 | 0 (0) | 0 | 0 | 0 |
+| no model, live v2 run | heldout_v2 | random_search | 20/20 | +0.106 (-0.188 to +0.476) | 14 / 6 | 0 / 0 | 20/20 | 4/4 | 0 (0) | 0 | 0 | 0 |
+| live v2, gpt-4.1-mini | heldout_v2 | single_call | 20/20 | +0.165 (-0.074 to +0.474) | 17 / 2 | 10 / 2 | 20/20 | 4/4 | 0 (0) | 0 | 35819 | 0.0218 |
+| live v2, gpt-4.1-mini | heldout_v2 | agent | 20/20 | +0.150 (-0.156 to +0.475) | 14 / 4 | 10 / 2 | 20/20 | 4/4 | 2 (0) | 0 | 303056 | 0.1255 |
+| live v2, claude-sonnet-4.6 | heldout_v2 | single_call | 6/6 (4 pending, run cap) | +0.171 (-0.093 to +0.475) | 4 / 1 | 3 / 2 | 6/6 | 1/1 | 0 (0) | 0 | 13591 | 0.0864 |
+| live v2, claude-sonnet-4.6 | heldout_v2 | agent | 6/6 (4 pending, run cap) | +0.196 (-0.005 to +0.475) | 4 / 0 | 3 / 2 | 6/6 | 1/1 | 0 (0) | 0 | 107218 | 0.3876 |
 <!-- results-table:end -->
 
-What the pilot says, read with 20 episodes per arm in mind:
+### v1 pilot (held-out v1, gpt-4.1-mini, 20 episodes per arm)
 
 - **The single call did best, and the iterating agent did not beat it.** One reply proposing six specs, with the best dev trial frozen by rule, averaged a +0.099 gain over the fixed pipeline (range -0.081 to +0.386). It won 11 of 20 episodes against the fixed pipeline and lost 5, and won 13 of 20 against random search. The agent averaged +0.076 (range -0.099 to +0.386), with 10 wins and 5 losses against the fixed pipeline. Paired episode by episode, the agent beat the single call 5 times, lost 8 times and tied 7 times.
 - **Random search with six trials was no better than the default.** Mean gain -0.001, 10 wins and 9 losses against the fixed pipeline, with the widest spread of any arm (-0.518 to +0.388).
@@ -64,7 +77,22 @@ What the pilot says, read with 20 episodes per arm in mind:
 - **One trial failed for a reason the validator should have caught.** On ho-01 run 1 the agent listed `noise_d` twice in a feature list, and the fit failed as a recorded trial. Spec validation now rejects repeated columns before a trial is spent. That change came after the pilot, which was not re-run on the same held-out tasks; the pilot ran at commit `d591c43`.
 - **Total cost of the pilot:** 309,059 prompt and 26,592 completion tokens, 0.144 USD reported by the provider (0.166 USD at the listed prices the cap check uses). The two one-task dev smoke tests before it cost about 0.017 USD.
 
-[reports/evidence.md](reports/evidence.md) lists every episode that failed, refused a column, lost a trial or did not reproduce. Per-trial records are in `reports/live/trial_results.jsonl`, scoring receipts in `reports/live/scoring_receipts.jsonl`, agent traces in `reports/live/traces/`, and frozen manifests in `reports/live/frozen/`.
+### v2 run A (held-out v2, gpt-4.1-mini, 20 episodes per arm)
+
+- **The coverage fix took effect, and the single call still came out slightly ahead.** The agent tried all three model families in 20 of 20 episodes and used 90 of 120 trials. It averaged +0.150 (range -0.156 to +0.475) with 14 wins and 4 losses against the fixed pipeline. The single call averaged +0.165 (-0.074 to +0.474) with 17 wins and 2 losses. Paired episode by episode, the agent was better 5 times, worse 6 times and tied 9 times. Both LLM arms beat random search 10 times and lost to it twice.
+- **Random search did much better on v2 than on v1** (+0.106, 14 wins and 6 losses against the fixed pipeline). v2 has tasks where the default is badly suited: on the two three-class phase tasks (h2-05, h2-06) every arm, random search included, cut log loss by about 47 percent. The agent's worst results were on the saturating-dose regression h2-03 (-0.101 and -0.156), where the trial it froze did worse on the holdout than the default.
+- **Discipline held.** All 80 frozen candidates were refit byte for byte. The agent asked twice for the group id `lot` on h2-10; both requests were refused and nothing ran. No arm asked for a leaked column (4 of 4 leak-trap episodes clean per arm). No malformed replies, no retries.
+- **Cost:** 314,327 prompt and 24,548 completion tokens, 0.147 USD reported by the provider (0.165 at listed prices); the agent's share was 0.126 USD against 0.022 for the single call.
+
+### v2 run B (held-out v2, claude-sonnet-4.6, one run)
+
+- **The first attempt failed for infrastructure reasons and is not reported as a result.** OpenRouter answered HTTP 429 while several sessions were using the same model, and 6 of 20 LLM episodes stopped with `adapter_error`. Those outputs are kept in [reports/aborted/](reports/aborted/README.md) and left out of every table. That attempt cost 0.466 USD.
+- **The repeat was stopped by its dollar cap after 6 of 10 tasks.** It used the same frozen tasks with 6 retries and 5 s exponential backoff; it needed no retries. The cap (0.48 USD, keeping both attempts within 0.95 USD) was reached after h2-01 to h2-06. h2-07 to h2-10 are pending for both LLM arms and are not counted as losses ([docs/evaluation.md](docs/evaluation.md)).
+- **On those six tasks the stronger model's agent did best, but six tasks settle nothing.** The agent averaged +0.196 (-0.005 to +0.475) with 4 wins and no losses against the fixed pipeline, and was better than its own single call on 2 tasks, worse on none, tied on 4. Its single call averaged +0.171 (4 wins, 1 loss). On the same six tasks, run 0, gpt-4.1-mini scored +0.177 with the single call and +0.153 with the agent. The agent tried all three model families on every task, with 4 or 5 trials.
+- **Discipline held.** All 12 frozen LLM candidates (and every baseline candidate) reproduced byte for byte; no forbidden column was requested; no malformed replies.
+- **Cost:** 111,511 prompt and 9,298 completion tokens, 0.474 USD (the agent 0.388, the single call 0.086). With the aborted attempt, run B cost 0.940 USD.
+
+[reports/per_task_breakdown.csv](reports/per_task_breakdown.csv) has one row per live episode (gain, frozen model, trials run, model families tried) and backs every per-task statement above. [reports/evidence.md](reports/evidence.md) lists every episode that failed, refused a column, lost a trial, did not reproduce or was left pending, plus the run metadata of each result set. Per-trial records, scoring receipts, agent traces and frozen manifests are under `reports/live/` (v1) and `reports/live_v2_*/` (v2).
 
 ## Scorer checks (scripted replies, not model results)
 
@@ -95,13 +123,13 @@ src/reproducible_experiment_agent/
   evaluation.py       holdout scoring once, reproduction, gains, aggregation
   report.py           evidence.json, evidence.md, README tables
 evaluator/            holdout rows and holdout_scorer.py, outside the package
-tasks/                16 synthetic tasks (train and dev rows plus manifest)
-scripts/              make_tasks.py (generators), make_fixture_scripts.py
-configs/              experiment_fixture.yaml, experiment_live.yaml
+tasks/                26 synthetic tasks: dev, held-out v1, held-out v2
+scripts/              make_tasks.py, make_tasks_v2.py (generators), make_fixture_scripts.py
+configs/              fixture, live v1 and the two live v2 configs
 docs/                 design, threat model, splits, evaluation protocol, data manifest
 ```
 
-Two meanings of "test" never share a name here. Task families (`dev`, `heldout`) split the benchmark tasks: the held-out family uses five generators the dev family never uses. Row partitions (`train`, `dev`, `holdout`) split the rows of one task, by whole groups or whole duplicate sets. [docs/splits.md](docs/splits.md) has the details and the trap list.
+Two meanings of "test" never share a name here. Task families (`dev`, `heldout`, `heldout_v2`) split the benchmark tasks: each held-out family uses five generators that no earlier family uses. Row partitions (`train`, `dev`, `holdout`) split the rows of one task, by whole groups or whole duplicate sets. [docs/splits.md](docs/splits.md) has the details and the trap list.
 
 ## Live runs
 
@@ -112,7 +140,7 @@ python -m reproducible_experiment_agent evaluate --config configs/experiment_liv
 python -m reproducible_experiment_agent report --update-readme
 ```
 
-`configs/experiment_live.yaml` pins the model (`openai/gpt-4.1-mini`, overriding `AGENT_MODEL_NAME`) and its listed prices, and caps each agent episode at 18 steps, 14 tool calls, 6 trials, 180 compute seconds, 60,000 tokens and 900 seconds of wall time. The whole run is capped at 2 million tokens and 3 USD, checked before every LLM episode; skipped episodes are recorded as failures. Without an endpoint, `--require-live` exits with code 2 and never falls back to scripted replies.
+Each live config pins its model (overriding `AGENT_MODEL_NAME`), its listed prices and its adapter retry settings, and caps each agent episode at 18 steps, 14 tool calls, 6 trials, 180 compute seconds, 60,000 tokens and 900 seconds of wall time. The v1 run was capped at 3 USD; the v2 configs (`experiment_live_v2_gpt41mini.yaml`, `experiment_live_v2_sonnet46.yaml`) at 0.35 and 0.48 USD. The cap is checked before every LLM episode against spend so far plus the largest episode cost seen for that arm; episodes it skips are reported as pending. Without an endpoint, `--require-live` exits with code 2 and never falls back to scripted replies.
 
 ## Overlap with tabular-ml-pipeline
 
@@ -124,13 +152,13 @@ No model-written code is executed, and the only thing a trial can do is build sc
 
 ## Limitations
 
-- Sixteen small synthetic tables (about 360 rows each, 48 to 78 holdout rows) from eight original generators. They test experiment discipline and planning, not modelling at scale, and a 1 percent relative difference on 72 holdout rows is often noise.
+- Twenty-six small synthetic tables (about 360 rows each, 46 to 78 holdout rows) from thirteen original generators. They test experiment discipline and planning, not modelling at scale, and a 1 percent relative difference on 72 holdout rows is often noise.
 - The fixed baseline is gradient boosting with library defaults, which is strong on small tables. That is deliberate: it is the default a careful practitioner would start from.
 - The allowlist is small on purpose: three model families, no feature engineering, no ensembling, no early stopping on dev rows. A planner cannot do much that random search cannot also stumble on with six trials.
 - Leakage protection is a policy over declared columns. It catches the leaked column the manifest knows about; it cannot detect a leak nobody declared.
 - Byte-identical reproduction holds on the same platform with the same library versions. Across scikit-learn or numpy versions it is not promised.
 - On Windows only the trial time limit is enforced; the memory limit applies on POSIX.
-- The live pilot is one model, ten held-out tasks and two runs at temperature 0. Treat it as an exploratory sample.
+- Each live result is one model on ten held-out tasks with one or two runs at temperature 0, and the second-model run covers only six tasks. Treat them as exploratory samples.
 
 ## Author
 

@@ -1,0 +1,39 @@
+{
+ "task_id": "h2-08",
+ "family": "heldout_v2",
+ "episode_id": "single_call:h2-08:run0",
+ "run_id": "t05",
+ "features": [
+  "line_speed",
+  "humidity_idx",
+  "crew_shift"
+ ],
+ "spec": {
+  "features": [
+   "line_speed",
+   "humidity_idx",
+   "crew_shift"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "ordinal",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 150,
+   "max_depth": 6,
+   "min_samples_leaf": 10
+  }
+ },
+ "seed": 99,
+ "dev_metrics": {
+  "mae": 1.750528,
+  "rmse": 2.380276
+ },
+ "artifact_sha256": "70396b6998317f548f80db7f1e4a7dfd91afca7dd4d9bb08358234180791d863",
+ "prediction_sha256": "c6da0701a7980f66519432c15793c960c7e5535bf426a7fba52c722b84a7b2c5",
+ "partition_sha256": "19d84089c72c7b6fa3445d3324a2e1d820e88576be409d0dd5757b12c5ea23fd",
+ "train_dev_sha256": "2ca2c6d829d32a6faf0c3813f7062995954deff70e9ae1e8d897cc7a37f93619",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "277fa33aeb18df8b289478d00a8220bd03ad2b7a30a57c09e65fcb2a29b5196b"
+}

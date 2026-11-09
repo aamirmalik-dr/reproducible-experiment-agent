@@ -1,0 +1,2 @@
+{"episode_id": "agent:h2-10:run0", "event": "adapter_error", "message": "model request failed after retries: HTTP 429"}
+{"episode_id": "agent:h2-10:run0", "event": "stop", "status": "failed", "steps": 0, "stop_reason": "adapter_error"}

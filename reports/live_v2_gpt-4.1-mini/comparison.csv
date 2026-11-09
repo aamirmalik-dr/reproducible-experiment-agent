@@ -1,0 +1,5 @@
+family,arm,mode,episodes,runs,pending_run_cap,frozen_k,frozen_n,wins_vs_fixed_k,losses_vs_fixed_k,wins_vs_random_k,losses_vs_random_k,mean_gain_vs_fixed,min_gain_vs_fixed,max_gain_vs_fixed,mean_dev_holdout_gap,reproduced_k,trials_total,trials_failed_total,leak_clean_k,leak_clean_n,forbidden_attempts_total,executed_forbidden_total,failures,malformed_actions,model_calls_total,tool_calls_total,tokens_total,reported_cost_usd_total
+heldout_v2,fixed,live,20,2,0,20,20,0,0,6,14,0.0,0.0,0.0,0.0739,20,20,0,4,4,0,0,0,0,0,40,,
+heldout_v2,random_search,live,20,2,0,20,20,14,6,0,0,0.106,-0.1884,0.4758,0.0768,20,120,0,4,4,0,0,0,0,0,140,,
+heldout_v2,single_call,live,20,2,0,20,20,17,2,10,2,0.1651,-0.0743,0.4743,0.0459,20,120,0,4,4,0,0,0,0,20,140,35819,0.021807
+heldout_v2,agent,live,20,2,0,20,20,14,4,10,2,0.1501,-0.156,0.4752,0.0737,20,90,0,4,4,2,0,0,0,136,136,303056,0.125536

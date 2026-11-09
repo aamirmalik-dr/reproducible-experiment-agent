@@ -1,0 +1,47 @@
+{
+ "task_id": "h2-04",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-04:run0",
+ "run_id": "t05",
+ "features": [
+  "catalyst_dose",
+  "bath_temp",
+  "aux_1",
+  "aux_2",
+  "aux_3",
+  "reactor"
+ ],
+ "spec": {
+  "features": [
+   "catalyst_dose",
+   "bath_temp",
+   "aux_1",
+   "aux_2",
+   "aux_3",
+   "reactor"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.03,
+   "max_iter": 300,
+   "max_leaf_nodes": 48,
+   "l2_regularization": 0.5,
+   "min_samples_leaf": 8
+  }
+ },
+ "seed": 42,
+ "dev_metrics": {
+  "mae": 1.865238,
+  "rmse": 2.569573
+ },
+ "artifact_sha256": "d5d3ea61365a6eaa26f91c6737ef0171c920e5df9f1953f96c54a659ccd33c0d",
+ "prediction_sha256": "e4558f3238fd194c09a00e4352cae14bb5c8ffa7f30638fe3950e4bd3ee4591c",
+ "partition_sha256": "07c9ecdf13528e7f4da998b8eb89e4dd2faf88f115aab4529fbbfa0761a5b588",
+ "train_dev_sha256": "8c77dbf18be274699e3de7fcb00c6f9986a397865c8d4929953e84dd68d0679c",
+ "package_version": "0.1.0",
+ "justification": "t05 achieved the lowest dev MAE of 1.865 and RMSE of 2.570 among all trials, using hist_gradient_boosting with learning_rate=0.03, max_iter=300, max_leaf_nodes=48, l2_regularization=0.5, min_samples_leaf=8 on all permitted features.",
+ "manifest_sha256": "0aed5cb1f26db14c9d1c10ba1747a8db798bf570327fa2c5cee71c0f946e6db8"
+}

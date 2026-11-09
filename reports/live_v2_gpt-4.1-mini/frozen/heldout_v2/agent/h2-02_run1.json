@@ -1,0 +1,42 @@
+{
+ "task_id": "h2-02",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-02:run1",
+ "run_id": "t02",
+ "features": [
+  "press_force",
+  "die_temp",
+  "lube_level",
+  "steel_grade"
+ ],
+ "spec": {
+  "features": [
+   "press_force",
+   "die_temp",
+   "lube_level",
+   "steel_grade"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 100,
+   "max_depth": 10,
+   "min_samples_leaf": 5
+  }
+ },
+ "seed": 0,
+ "dev_metrics": {
+  "log_loss": 0.669369,
+  "macro_f1": 0.582043,
+  "accuracy": 0.583333
+ },
+ "artifact_sha256": "8c827ab122b8c2bb36d1c6fbbbb7f0b9c1144ca7ce81409c63a2d795268a1227",
+ "prediction_sha256": "b4938995ea14bc39b8340ced4c015b17ac4cf481eea7bd78de3d24b859e8c867",
+ "partition_sha256": "64a49649387b019ea7c0eec7a5c020ff854e6b626f4aa4358dcc58b168148ccc",
+ "train_dev_sha256": "1947af5fcfd1cfb040ed0329e8edf4c392f83d7049446f8571b278c4f727c9c1",
+ "package_version": "0.1.0",
+ "justification": "Random forest model achieved the lowest dev log loss (0.669369) among all tried models, indicating best performance on dev data.",
+ "manifest_sha256": "246725f4187640b69df1b4f4b548a173fcdb3348639cfef3c1887914c3850390"
+}

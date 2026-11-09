@@ -1,0 +1,47 @@
+{
+ "task_id": "h2-04",
+ "family": "heldout_v2",
+ "episode_id": "single_call:h2-04:run0",
+ "run_id": "t04",
+ "features": [
+  "catalyst_dose",
+  "bath_temp",
+  "aux_1",
+  "aux_2",
+  "aux_3",
+  "reactor"
+ ],
+ "spec": {
+  "features": [
+   "catalyst_dose",
+   "bath_temp",
+   "aux_1",
+   "aux_2",
+   "aux_3",
+   "reactor"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "ordinal",
+  "scaler": "none",
+  "model": "hist_gradient_boosting",
+  "params": {
+   "learning_rate": 0.1,
+   "max_iter": 300,
+   "max_leaf_nodes": 16,
+   "l2_regularization": 1.0,
+   "min_samples_leaf": 10
+  }
+ },
+ "seed": 42,
+ "dev_metrics": {
+  "mae": 2.086603,
+  "rmse": 3.05722
+ },
+ "artifact_sha256": "9b55621450db3ae165e240205caa976e9e1ca02743e6411998e7da11ede7e683",
+ "prediction_sha256": "f9b8d608f6b97238f08655f389855e1bdc231ec3c2885c120d3380c2f5c26f30",
+ "partition_sha256": "07c9ecdf13528e7f4da998b8eb89e4dd2faf88f115aab4529fbbfa0761a5b588",
+ "train_dev_sha256": "8c77dbf18be274699e3de7fcb00c6f9986a397865c8d4929953e84dd68d0679c",
+ "package_version": "0.1.0",
+ "justification": "lowest dev metric (fixed selection rule)",
+ "manifest_sha256": "0a0bcb1978534e05fcd31fee00c1f96f8854f77ea6d3f87d0f53211d4345fb67"
+}

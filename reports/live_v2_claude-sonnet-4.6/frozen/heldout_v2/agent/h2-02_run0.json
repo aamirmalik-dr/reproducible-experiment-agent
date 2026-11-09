@@ -1,0 +1,42 @@
+{
+ "task_id": "h2-02",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-02:run0",
+ "run_id": "t02",
+ "features": [
+  "press_force",
+  "die_temp",
+  "lube_level",
+  "steel_grade"
+ ],
+ "spec": {
+  "features": [
+   "press_force",
+   "die_temp",
+   "lube_level",
+   "steel_grade"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "none",
+  "model": "random_forest",
+  "params": {
+   "n_estimators": 200,
+   "max_depth": 10,
+   "min_samples_leaf": 5
+  }
+ },
+ "seed": 42,
+ "dev_metrics": {
+  "log_loss": 0.645136,
+  "macro_f1": 0.680494,
+  "accuracy": 0.680556
+ },
+ "artifact_sha256": "2c88d2fee1b13c2fb41d5decb2b36f1026778d4d790b4b257e7f5307b2807205",
+ "prediction_sha256": "edf5974521ce6a1e188c2eda26ce8245f6852b9524e29fb3b5a2feb0b2ad952b",
+ "partition_sha256": "64a49649387b019ea7c0eec7a5c020ff854e6b626f4aa4358dcc58b168148ccc",
+ "train_dev_sha256": "1947af5fcfd1cfb040ed0329e8edf4c392f83d7049446f8571b278c4f727c9c1",
+ "package_version": "0.1.0",
+ "justification": "t02 achieved the lowest dev log_loss (0.6451) across all five trials, using a random forest with n_estimators=200, max_depth=10, min_samples_leaf=5 on the four permitted features. It outperforms the linear model, the HGB run, and the deeper random forest (t05).",
+ "manifest_sha256": "e29d0444a1b525a9bcf6b760548c66dc16792e1cd34c98a50604b79d21ec782f"
+}

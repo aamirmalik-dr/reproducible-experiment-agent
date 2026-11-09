@@ -1,0 +1,41 @@
+{
+ "task_id": "h2-05",
+ "family": "heldout_v2",
+ "episode_id": "agent:h2-05:run1",
+ "run_id": "t05",
+ "features": [
+  "frac_a",
+  "frac_b",
+  "frac_c",
+  "anneal_k"
+ ],
+ "spec": {
+  "features": [
+   "frac_a",
+   "frac_b",
+   "frac_c",
+   "anneal_k"
+  ],
+  "numeric_imputer": "median",
+  "categorical_encoder": "onehot",
+  "scaler": "standard",
+  "model": "linear",
+  "params": {
+   "C": 100.0,
+   "alpha": 0.0005
+  }
+ },
+ "seed": 2,
+ "dev_metrics": {
+  "log_loss": 0.372564,
+  "macro_f1": 0.845005,
+  "accuracy": 0.847222
+ },
+ "artifact_sha256": "bcac546b99ba4bc20bef40436863ca4da96c4d1a795788adf284cf8079eddaa8",
+ "prediction_sha256": "448563fb7da61cbd200088245e816b3d833f64aaf9d59c3ef98dcd077cae1eae",
+ "partition_sha256": "c64f54d33b159f9f05459cf87dc3da016b40706205577ef6c9ccb83e58c03c50",
+ "train_dev_sha256": "b4c9013a7f5d4369aada8b02c53aae5568f071772b9de3d41cc3cf946c7ddef7",
+ "package_version": "0.1.0",
+ "justification": "Linear model with C=100 and alpha=0.0005 achieved the lowest dev log loss (0.372564), best accuracy and macro F1, indicating best generalization among tried models.",
+ "manifest_sha256": "1a7404807cda36d2ad56a48a8c7f5e73f76c79a9a8d777364479b08708554e32"
+}
