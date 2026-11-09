@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Data: only the README is tracked; fixtures live in tests/fixtures
+data/*
+!data/README.md
+
+# Run scratch: checkpoints and raw live responses never enter git
+runs/
+*.ckpt.json
+*.ckpt.json.prev
+*.tmp
+reports/live_raw/
+
+# Secrets
+.env
+.env.*
+
+# Fitted artifacts are rebuilt from frozen manifests
+*.pkl
