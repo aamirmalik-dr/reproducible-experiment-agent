@@ -85,3 +85,65 @@ def test_live_configs_carry_adapter_retry_settings(monkeypatch: pytest.MonkeyPat
         model=cfg.model, max_retries=cfg.adapter_max_retries, backoff_s=cfg.adapter_backoff_s
     )
     assert (ad.max_retries, ad.backoff_s, ad.name) == (6, 5.0, "anthropic/claude-sonnet-4.6")
+
+
+def test_episodes_stopped_by_the_run_cap_are_pending_not_losses() -> None:
+    from reproducible_experiment_agent.evaluation import aggregate
+
+    base = {
+        "family": "d",
+        "mode": "live",
+        "frozen": 1,
+        "trials_run": 1,
+        "trials_failed": 0,
+        "trials_timeout": 0,
+        "leak_task": 0,
+        "leak_attempts": 0,
+        "forbidden_attempts": 0,
+        "executed_forbidden": 0,
+        "reproduced": 1,
+        "dev_holdout_gap": 0.0,
+    }
+    rows = [
+        base
+        | {
+            "arm": "fixed",
+            "task_id": "t1",
+            "run": 0,
+            "status": "complete",
+            "stop_reason": "finished",
+            "holdout_primary": 1.0,
+        },
+        base
+        | {
+            "arm": "agent",
+            "task_id": "t1",
+            "run": 0,
+            "status": "complete",
+            "stop_reason": "finished",
+            "holdout_primary": 0.8,
+        },
+        base
+        | {
+            "arm": "fixed",
+            "task_id": "t2",
+            "run": 0,
+            "status": "complete",
+            "stop_reason": "finished",
+            "holdout_primary": 1.0,
+        },
+        base
+        | {
+            "arm": "agent",
+            "task_id": "t2",
+            "run": 0,
+            "status": "failed",
+            "frozen": 0,
+            "stop_reason": "run_budget_exhausted",
+            "holdout_primary": None,
+        },
+    ]
+    add_gains(rows)
+    agent = next(r for r in aggregate(rows) if r["arm"] == "agent")
+    assert (agent["episodes"], agent["pending_run_cap"]) == (1, 1)
+    assert (agent["wins_vs_fixed_k"], agent["losses_vs_fixed_k"]) == (1, 0)

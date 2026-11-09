@@ -357,7 +357,11 @@ def aggregate(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for r in rows:
         groups.setdefault((r["family"], r["arm"]), []).append(r)
     out = []
-    for (family, arm), rs in groups.items():
+    for (family, arm), all_rs in groups.items():
+        # Episodes the run-level cap never started are pending, not failures of the arm.
+        rs = [r for r in all_rs if r["stop_reason"] != "run_budget_exhausted"]
+        if not rs:
+            continue
         n = len(rs)
         frozen = [r for r in rs if r["frozen"]]
         gains = [r["gain_vs_fixed"] for r in frozen if r["gain_vs_fixed"] is not None]
@@ -369,6 +373,7 @@ def aggregate(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "mode": rs[0]["mode"],
             "episodes": n,
             "runs": len({r["run"] for r in rs}),
+            "pending_run_cap": len(all_rs) - len(rs),
             "frozen_k": len(frozen),
             "frozen_n": n,
             "wins_vs_fixed_k": sum(r["win_vs_fixed"] for r in rs),

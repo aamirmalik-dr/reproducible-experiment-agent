@@ -36,6 +36,10 @@ Also reported, with denominators:
 
 The live pilot runs 10 held-out tasks twice. Each run is a separate episode, so every arm has 20 episodes. Min and max relative gain are shown as the spread. This is an exploratory sample, not a ranking.
 
+## Episodes the run cap never started
+
+Added in the v2 round, after the second-model run was stopped by its dollar cap: an episode that never ran because the run-level cap was reached (`stop_reason: run_budget_exhausted`) is reported as pending and left out of every denominator for that arm, instead of being counted as a loss. The rule only relabels episodes that have no measurement; it changes no measured value, and no v1 result is affected (no v1 episode hit the cap).
+
 ## What counts as a failure
 
 No frozen candidate (budget exhausted, malformed output, adapter error, every trial failed). Strong holdout performance obtained with a leaked column would count as a failure, but the policy refuses such trials before they run.
