@@ -1,0 +1,56 @@
+{
+ "task_id": "h2-07",
+ "family": "heldout_v2",
+ "generator": "counts",
+ "seed": 131,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "defects_per_roll",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "line_speed",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised line speed"
+  },
+  {
+   "name": "humidity_idx",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised humidity index"
+  },
+  {
+   "name": "crew_shift",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "production shift"
+  },
+  {
+   "name": "defects_per_roll",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "defects_per_roll"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional film rolls; target is the count of visual defects per roll.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "7af673945dfd2d739c8027a7d5b3a025606a4ea8f4501d8332bf112a4f03eb45"
+}

@@ -1,0 +1,62 @@
+{
+ "task_id": "h2-01",
+ "family": "heldout_v2",
+ "generator": "category_slope",
+ "seed": 101,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "cracked",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "press_force",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised press force"
+  },
+  {
+   "name": "die_temp",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised die temperature"
+  },
+  {
+   "name": "lube_level",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "lubricant level, fraction of nominal"
+  },
+  {
+   "name": "steel_grade",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "steel grade of the blank"
+  },
+  {
+   "name": "cracked",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "cracked"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Stamped parts from a fictional press line; target is whether the part cracked.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "754c8c789bfe3cbd6c52154147ccaf7ee0ab95f88abc3c3127fc138e2d9deea0"
+}

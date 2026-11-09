@@ -1,0 +1,74 @@
+{
+ "task_id": "h2-03",
+ "family": "heldout_v2",
+ "generator": "saturating",
+ "seed": 111,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "conversion_pct",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "catalyst_dose",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "catalyst dose, mg"
+  },
+  {
+   "name": "bath_temp",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised bath temperature"
+  },
+  {
+   "name": "aux_1",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "auxiliary logger channel"
+  },
+  {
+   "name": "aux_2",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "auxiliary logger channel"
+  },
+  {
+   "name": "aux_3",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "auxiliary logger channel"
+  },
+  {
+   "name": "reactor",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "reactor vessel"
+  },
+  {
+   "name": "conversion_pct",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "conversion_pct"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional batch reactions; target is conversion in percent, which saturates with dose.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "013e623daf1677c9f840d7aeb79aa62cf0eb3506da0f4dbe61d4519edf7db26b"
+}

@@ -1,0 +1,71 @@
+{
+ "task_id": "h2-02",
+ "family": "heldout_v2",
+ "generator": "category_slope",
+ "seed": 102,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "cracked",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "press_force",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised press force"
+  },
+  {
+   "name": "die_temp",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised die temperature"
+  },
+  {
+   "name": "lube_level",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "lubricant level, fraction of nominal"
+  },
+  {
+   "name": "steel_grade",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "steel grade of the blank"
+  },
+  {
+   "name": "review_flag",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "review outcome, recorded by the review board after the outcome was known"
+  },
+  {
+   "name": "cracked",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "cracked",
+  "review_flag"
+ ],
+ "traps": [
+  "leak"
+ ],
+ "description": "Fictional synthetic data generated for this benchmark. Stamped parts from a fictional press line; target is whether the part cracked.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "1947af5fcfd1cfb040ed0329e8edf4c392f83d7049446f8571b278c4f727c9c1"
+}

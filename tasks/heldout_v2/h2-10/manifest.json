@@ -1,0 +1,59 @@
+{
+ "task_id": "h2-10",
+ "family": "heldout_v2",
+ "generator": "lot_effect",
+ "seed": 142,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "tensile_mpa",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "lot",
+   "kind": "categorical",
+   "role": "group",
+   "description": "resin lot; the split service keeps lots whole"
+  },
+  {
+   "name": "cure_time",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised cure time"
+  },
+  {
+   "name": "filler_frac",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "filler volume fraction"
+  },
+  {
+   "name": "tensile_mpa",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "tensile_mpa",
+  "lot"
+ ],
+ "traps": [
+  "shift"
+ ],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional composite coupons from several resin lots; target is tensile strength. Lots differ strongly.",
+ "partition_strategy": "group",
+ "group_column": "lot",
+ "rows": {
+  "train": 218,
+  "dev": 71,
+  "holdout": 71
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "d4454da0a12566dbf03e1f8a2a8771b5aa460bc125cd066ea676db96bf3969da"
+}

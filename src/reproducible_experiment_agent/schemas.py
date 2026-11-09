@@ -55,7 +55,7 @@ class TaskManifest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     task_id: str
-    family: Literal["dev", "heldout"]
+    family: Literal["dev", "heldout", "heldout_v2"]
     generator: str
     seed: int
     task_type: TaskType

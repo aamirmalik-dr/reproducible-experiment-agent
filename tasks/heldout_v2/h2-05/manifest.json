@@ -1,0 +1,62 @@
+{
+ "task_id": "h2-05",
+ "family": "heldout_v2",
+ "generator": "three_phase",
+ "seed": 121,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "phase",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "frac_a",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "atomic fraction of element A"
+  },
+  {
+   "name": "frac_b",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "atomic fraction of element B"
+  },
+  {
+   "name": "frac_c",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "atomic fraction of element C"
+  },
+  {
+   "name": "anneal_k",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "anneal temperature, K"
+  },
+  {
+   "name": "phase",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "phase"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional ternary alloy samples; target is the majority phase seen after annealing (three classes).",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "b4c9013a7f5d4369aada8b02c53aae5568f071772b9de3d41cc3cf946c7ddef7"
+}

@@ -20,9 +20,8 @@ from reproducible_experiment_agent.task_registry import list_tasks, load_manifes
 
 from .conftest import ROOT
 
-ALL = [("dev", t) for t in list_tasks(ROOT, "dev")] + [
-    ("heldout", t) for t in list_tasks(ROOT, "heldout")
-]
+FAMILIES = ("dev", "heldout", "heldout_v2")
+ALL = [(f, t) for f in FAMILIES for t in list_tasks(ROOT, f)]
 
 
 def _holdout(task_id: str) -> pd.DataFrame:
@@ -30,12 +29,10 @@ def _holdout(task_id: str) -> pd.DataFrame:
 
 
 def test_families_use_disjoint_generators() -> None:
-    gens = {
-        f: {load_manifest(ROOT, f, t).generator for t in list_tasks(ROOT, f)}
-        for f in ("dev", "heldout")
-    }
-    assert len(list_tasks(ROOT, "dev")) == 6 and len(list_tasks(ROOT, "heldout")) == 10
+    gens = {f: {load_manifest(ROOT, f, t).generator for t in list_tasks(ROOT, f)} for f in FAMILIES}
+    assert [len(list_tasks(ROOT, f)) for f in FAMILIES] == [6, 10, 10]
     assert not gens["dev"] & gens["heldout"]
+    assert not (gens["dev"] | gens["heldout"]) & gens["heldout_v2"]
 
 
 @pytest.mark.parametrize("family,task_id", ALL)
@@ -93,6 +90,14 @@ def test_task_generation_is_byte_reproducible(tmp_path: Path) -> None:
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     module.main(tmp_path)
+    v2 = importlib.util.spec_from_file_location(
+        "make_tasks_v2", ROOT / "scripts" / "make_tasks_v2.py"
+    )
+    assert v2 and v2.loader
+    module2 = importlib.util.module_from_spec(v2)
+    sys.modules[v2.name] = module2
+    v2.loader.exec_module(module2)
+    module2.main(tmp_path)
     for family, task_id in ALL:
         for rel in (
             f"tasks/{family}/{task_id}/train_dev.csv",
