@@ -74,6 +74,8 @@ class EvalConfig(BaseModel):
     run_caps: RunCaps = Field(default_factory=RunCaps)
     output_dir: str = "reports/fixture"
     work_dir: str = "runs"
+    adapter_max_retries: int = 2
+    adapter_backoff_s: float = 2.0
 
 
 def load_config(path: Path) -> tuple[EvalConfig, str]:
@@ -135,7 +137,9 @@ def run_evaluation(cfg: EvalConfig, cfg_sha: str, root: Path, require_live: bool
     """
     live: ModelAdapter | None = None
     if cfg.mode == "live":
-        live = OpenAICompatibleAdapter.from_env(model=cfg.model)
+        live = OpenAICompatibleAdapter.from_env(
+            model=cfg.model, max_retries=cfg.adapter_max_retries, backoff_s=cfg.adapter_backoff_s
+        )
     elif require_live:
         raise LiveModelUnavailable("--require-live was given but the config is in fixture mode")
     out = root / cfg.output_dir

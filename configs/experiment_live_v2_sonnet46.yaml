@@ -1,6 +1,9 @@
 # v2 live run B: second model on the same held-out v2 family, one run. LLM arms:
 # the agent and single_call (the strongest baseline in v1); the two no-model
 # baselines cost nothing and are included. Frozen 2026-11-09 before the run.
+# Repeated once after the first attempt hit HTTP 429 rate limits (kept in
+# reports/aborted/): only the adapter retry settings and the dollar cap changed;
+# the cap keeps both attempts together within 0.95 USD.
 mode: live
 model: anthropic/claude-sonnet-4.6  # via OpenRouter, temperature 0
 families: [heldout_v2]
@@ -19,8 +22,10 @@ episode:
   max_completion_tokens: 900
 run_caps:
   max_total_tokens: 2000000
-  max_usd: 0.70                     # spend so far plus the largest episode cost seen, per arm
+  max_usd: 0.48                     # 0.95 USD minus the 0.466 USD spent by the aborted attempt
   usd_per_mtok_input: 3.00          # OpenRouter listed price, 2026-11-09
   usd_per_mtok_output: 15.00
 output_dir: reports/live_v2_claude-sonnet-4.6
 work_dir: runs/v2b
+adapter_max_retries: 6             # transient 429 and 5xx; exponential backoff from 5 s
+adapter_backoff_s: 5.0

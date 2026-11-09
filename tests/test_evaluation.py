@@ -72,3 +72,16 @@ def test_headline_table_holds_only_real_measurements() -> None:
 def test_committed_frozen_candidate_reproduces(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.chdir(ROOT)
     assert main(["reproduce", "--manifest", "reports/frozen_candidate.json"]) == 0
+
+
+def test_live_configs_carry_adapter_retry_settings(monkeypatch: pytest.MonkeyPatch) -> None:
+    from reproducible_experiment_agent.agentcore.adapters import OpenAICompatibleAdapter
+
+    cfg, _ = load_config(ROOT / "configs" / "experiment_live_v2_sonnet46.yaml")
+    assert (cfg.adapter_max_retries, cfg.adapter_backoff_s) == (6, 5.0)
+    assert load_config(ROOT / "configs" / "experiment_live.yaml")[0].adapter_max_retries == 2
+    monkeypatch.setenv("AGENT_MODEL_BASE_URL", "http://x/v1")
+    ad = OpenAICompatibleAdapter.from_env(
+        model=cfg.model, max_retries=cfg.adapter_max_retries, backoff_s=cfg.adapter_backoff_s
+    )
+    assert (ad.max_retries, ad.backoff_s, ad.name) == (6, 5.0, "anthropic/claude-sonnet-4.6")
