@@ -280,6 +280,7 @@ def trial_trajectories(out: Path) -> None:
     for ax, (name, _, group, model, second) in zip(axes, SETS, strict=True):
         episodes, frozen = dev_gain_by_trial(name)
         n_fail = 0
+        n_best = 0
         for key in sorted(episodes):
             pts = sorted(episodes[key])
             ok = [(i, v) for i, v in pts if v is not None]
@@ -305,13 +306,17 @@ def trial_trajectories(out: Path) -> None:
             hit = [(i, v) for i, v in ok if fid and i == int(fid[1:])]
             if hit:
                 ax.scatter([hit[0][0]], [hit[0][1]], marker="*", s=110, color=fs.EDGE, zorder=4)
+                n_best += hit[0][0] == max(ok, key=lambda t: t[1])[0]
         ax.axhline(0, color=fs.EDGE, linewidth=1.0, zorder=1)
         ax.set_xticks(range(1, 7))
         ax.set_xlim(0.6, 6.4)
         ax.set_ylim(-1.5, 0.6)
         ax.set_xlabel("trial index")
-        extra = f"; {n_fail} failed trial, no metric" if n_fail else ""
-        ax.set_title(f"{group}\n{model}, {len(episodes)} episodes{extra}", fontsize=10)
+        extra = f"\n{n_fail} failed trial, no metric" if n_fail else "\n "
+        ax.set_title(
+            f"{group}, {model}\nfroze its best dev trial in {n_best}/{len(episodes)}{extra}",
+            fontsize=10,
+        )
     axes[0].set_ylabel("dev gain over the fixed pipeline\n(dev log loss or MAE)")
     handles = [
         Line2D(
@@ -340,7 +345,7 @@ def trial_trajectories(out: Path) -> None:
         "Agent trials: dev-set gain at each trial index, frozen trial starred", fontsize=11
     )
     fig.text(0.01, 0.005, SAMPLE, fontsize=10, color=fs.MUTED, va="bottom")
-    fig.subplots_adjust(left=0.1, right=0.99, top=0.83, bottom=0.3, wspace=0.08)
+    fig.subplots_adjust(left=0.1, right=0.99, top=0.8, bottom=0.3, wspace=0.08)
     fs.save(fig, out / "trial_trajectories.png")
 
 
