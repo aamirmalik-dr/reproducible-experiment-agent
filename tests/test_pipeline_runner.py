@@ -55,6 +55,7 @@ def test_unseen_categories_and_missing_values_are_handled() -> None:
         {"model": "hist_gradient_boosting", "params": {"max_iter": 12.5}},
         {"model": "svm"},
         {"model": "linear", "features": []},
+        {"model": "linear", "features": ["noise_d", "noise_d"]},
         {"model": "linear", "code": "import os"},
     ],
 )

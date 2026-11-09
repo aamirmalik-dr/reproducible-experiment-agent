@@ -101,6 +101,8 @@ class ExperimentSpec(BaseModel):
                 raise ValueError(f"{name} must be an integer")
         if isinstance(self.features, list) and not self.features:
             raise ValueError("features must be a non-empty list or 'all_permitted'")
+        if isinstance(self.features, list) and len(set(self.features)) != len(self.features):
+            raise ValueError("features must not repeat a column")
         return self
 
 
