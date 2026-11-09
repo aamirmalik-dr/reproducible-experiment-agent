@@ -155,6 +155,7 @@ def run_evaluation(cfg: EvalConfig, cfg_sha: str, root: Path, require_live: bool
     hashes: dict[str, str] = {}
     tok_in = tok_out = 0
     reported = 0.0
+    reserve: dict[str, float] = {}  # largest per-episode cost seen so far, per arm
     p_hash = None
 
     def adapter(family: str, arm: str, task_id: str) -> ModelAdapter:
@@ -194,7 +195,11 @@ def run_evaluation(cfg: EvalConfig, cfg_sha: str, root: Path, require_live: bool
                     capped = (
                         caps.max_total_tokens is not None
                         and tok_in + tok_out >= caps.max_total_tokens
-                    ) or (caps.max_usd is not None and spent is not None and spent >= caps.max_usd)
+                    ) or (
+                        caps.max_usd is not None
+                        and spent is not None
+                        and spent + reserve.get(arm, 0.0) >= caps.max_usd
+                    )
                     if capped and arm in ("agent", "single_call"):
                         res = EpisodeResult(
                             tid, arm, run, "failed", "run_budget_exhausted", [], None, [], {}
@@ -215,6 +220,12 @@ def run_evaluation(cfg: EvalConfig, cfg_sha: str, root: Path, require_live: bool
                             trace_path=out / "traces" / family / f"{tid}_run{run}.jsonl",
                             checkpoint_path=ckpt,
                         )
+                    ep_cost = cost_usd(
+                        res.info.get("prompt_tokens") or 0,
+                        res.info.get("completion_tokens") or 0,
+                        cfg.run_caps,
+                    )
+                    reserve[arm] = max(reserve.get(arm, 0.0), ep_cost or 0.0)
                     tok_in += res.info.get("prompt_tokens") or 0
                     tok_out += res.info.get("completion_tokens") or 0
                     reported += res.info.get("reported_cost_usd") or 0.0
