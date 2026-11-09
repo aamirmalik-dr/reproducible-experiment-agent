@@ -75,10 +75,9 @@ def trial_view(t: TrialResult) -> dict[str, Any]:
     out: dict[str, Any] = {
         "run_id": t.run_id,
         "status": t.status,
-        "model": t.spec.model,
-        "params": t.spec.params,
-        "features": t.spec.features if t.spec.features == "all_permitted" else len(t.features_used),
+        "spec": t.spec.model_dump(),
         "seed": t.seed,
+        "n_features_used": len(t.features_used),
         "dev_metrics": t.dev_metrics,
         "elapsed_s": t.elapsed_s,
     }
