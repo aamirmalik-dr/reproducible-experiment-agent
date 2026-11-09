@@ -1,0 +1,923 @@
+{
+ "ho-01": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-03": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-05": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-06": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-07": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-09": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-02": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "The review flag should help.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "features": [
+       "review_flag",
+       "bias_v",
+       "gap_nm"
+      ]
+     },
+     "seed": 1
+    }
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-04": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "A very deep forest.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "max_depth": 99
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-08": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Freeze a run that does not exist.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t09",
+     "justification": "best"
+    }
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ],
+ "ho-10": [
+  {
+   "summary": "Read the schema and metric first.",
+   "action": {
+    "tool": "inspect_schema",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Check how rows are partitioned.",
+   "action": {
+    "tool": "split_manifest",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Use the audited value.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "features": [
+       "audited_value",
+       "feed_rate"
+      ]
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Start with gradient boosting defaults.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a random forest for comparison.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Try a regularised linear model.",
+   "action": {
+    "tool": "run_experiment",
+    "arguments": {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   }
+  },
+  {
+   "summary": "Compare the dev results.",
+   "action": {
+    "tool": "compare_dev_runs",
+    "arguments": {}
+   }
+  },
+  {
+   "summary": "Verify the chosen artifact.",
+   "action": {
+    "tool": "check_artifacts",
+    "arguments": {
+     "run_id": "t01"
+    }
+   }
+  },
+  {
+   "summary": "Freeze the trial the script chose in advance.",
+   "action": {
+    "tool": "freeze_candidate",
+    "arguments": {
+     "run_id": "t01",
+     "justification": "scripted choice, fixed before any result"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "dev-01": [
+  {
+   "summary": "Cover three model families.",
+   "trials": [
+    {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "hist_gradient_boosting",
+      "params": {
+       "learning_rate": 0.05,
+       "max_iter": 200,
+       "max_leaf_nodes": 15
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   ]
+  }
+ ],
+ "dev-02": [
+  {
+   "summary": "Cover three model families.",
+   "trials": [
+    {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "hist_gradient_boosting",
+      "params": {
+       "learning_rate": 0.05,
+       "max_iter": 200,
+       "max_leaf_nodes": 15
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   ]
+  }
+ ],
+ "dev-03": [
+  "Here is my plan: try boosting first.",
+  "Boosting, then a forest."
+ ],
+ "dev-04": [
+  {
+   "summary": "Cover three model families.",
+   "trials": [
+    {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "hist_gradient_boosting",
+      "params": {
+       "learning_rate": 0.05,
+       "max_iter": 200,
+       "max_leaf_nodes": 15
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "alpha": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   ]
+  }
+ ],
+ "dev-05": [
+  {
+   "summary": "Cover three model families.",
+   "trials": [
+    {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "hist_gradient_boosting",
+      "params": {
+       "learning_rate": 0.05,
+       "max_iter": 200,
+       "max_leaf_nodes": 15
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   ]
+  }
+ ],
+ "dev-06": [
+  {
+   "summary": "Cover three model families.",
+   "trials": [
+    {
+     "spec": {
+      "model": "hist_gradient_boosting"
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "hist_gradient_boosting",
+      "params": {
+       "learning_rate": 0.05,
+       "max_iter": 200,
+       "max_leaf_nodes": 15
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "random_forest",
+      "params": {
+       "n_estimators": 150,
+       "min_samples_leaf": 3
+      }
+     },
+     "seed": 0
+    },
+    {
+     "spec": {
+      "model": "linear",
+      "params": {
+       "C": 1.0
+      },
+      "scaler": "standard"
+     },
+     "seed": 0
+    }
+   ]
+  }
+ ]
+}

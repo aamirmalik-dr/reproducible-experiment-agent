@@ -1,0 +1,25 @@
+# Live pilot: held-out family (10 tasks from 5 generators never used in dev),
+# two runs, all four arms. Trials run in a subprocess with a time limit.
+# Frozen 2026-11-09 before the first live held-out run.
+mode: live
+model: openai/gpt-4.1-mini          # via OpenRouter; overrides AGENT_MODEL_NAME
+families: [heldout]
+arms: [fixed, random_search, single_call, agent]
+runs: 2
+isolation: subprocess
+episode:
+  max_trials: 6
+  compute_seconds: 180
+  trial_time_limit_s: 60
+  max_steps: 18
+  max_tool_calls: 14
+  max_tokens: 60000                 # prompt plus completion, per agent episode
+  max_wall_seconds: 900
+  recent_k: 4
+  max_completion_tokens: 900
+run_caps:
+  max_total_tokens: 2000000
+  max_usd: 3.0                      # checked before every LLM episode at the prices below
+  usd_per_mtok_input: 0.40          # OpenRouter listed price, 2026-11-09
+  usd_per_mtok_output: 1.60
+output_dir: reports/live

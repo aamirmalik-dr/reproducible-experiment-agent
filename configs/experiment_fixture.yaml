@@ -1,0 +1,21 @@
+# Offline evaluation. fixed and random_search use no model; single_call and agent
+# replay scripted replies from tests/fixtures/scripts. Trials run in-process for
+# speed; every frozen candidate is still reproduced in a fresh subprocess.
+# Frozen 2026-11-09 before any live run.
+mode: fixture
+families: [dev, heldout]
+arms: [fixed, random_search, single_call, agent]
+runs: 1
+isolation: inprocess
+fixture_scripts: tests/fixtures/scripts
+episode:
+  max_trials: 6
+  compute_seconds: 180
+  trial_time_limit_s: 60
+  max_steps: 18
+  max_tool_calls: 14
+  max_tokens: 60000
+  max_wall_seconds: 900
+  recent_k: 4
+  max_completion_tokens: 900
+output_dir: reports/fixture
