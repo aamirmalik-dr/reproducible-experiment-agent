@@ -1,0 +1,56 @@
+{
+ "task_id": "ho-03",
+ "family": "heldout",
+ "generator": "piecewise",
+ "seed": 51,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "hardness_hv",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "quench_temp",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "quench bath temperature, C"
+  },
+  {
+   "name": "cool_rate",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "cooling rate, K per second"
+  },
+  {
+   "name": "furnace",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "furnace identifier; many furnaces appear rarely"
+  },
+  {
+   "name": "hardness_hv",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "hardness_hv"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Heat-treated parts from a fictional shop; target is Vickers hardness.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "7ae7ae996fd1a8bf23d9736e07c15e6b1a7a9b94397363ecf4e61d4384781c49"
+}

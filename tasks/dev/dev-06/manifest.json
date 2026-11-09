@@ -1,0 +1,71 @@
+{
+ "task_id": "dev-06",
+ "family": "dev",
+ "generator": "grouped_sites",
+ "seed": 32,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "failure",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "site",
+   "kind": "categorical",
+   "role": "group",
+   "description": "test site identifier; used by the split service to keep sites whole"
+  },
+  {
+   "name": "load_kn",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "applied load, kN"
+  },
+  {
+   "name": "cycles_k",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "fatigue cycles before inspection, thousands"
+  },
+  {
+   "name": "coating",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "surface coating type"
+  },
+  {
+   "name": "thickness_um",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "coating thickness, micrometres"
+  },
+  {
+   "name": "failure",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "failure",
+  "site"
+ ],
+ "traps": [
+  "shift"
+ ],
+ "description": "Fictional synthetic data generated for this benchmark. Fatigue specimens tested at several fictional sites; target is whether the specimen cracked. Sites differ systematically.",
+ "partition_strategy": "group",
+ "group_column": "site",
+ "rows": {
+  "train": 216,
+  "dev": 82,
+  "holdout": 62
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "e08e1c2e330aa774d4e393fbd4c5678d2825f8c1ea1ec60ade5172691f781080"
+}

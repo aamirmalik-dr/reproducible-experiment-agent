@@ -1,0 +1,56 @@
+{
+ "task_id": "ho-09",
+ "family": "heldout",
+ "generator": "heteroscedastic",
+ "seed": 81,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "throughput",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "feed_rate",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised extruder feed rate"
+  },
+  {
+   "name": "die_gap",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised die gap"
+  },
+  {
+   "name": "shift_crew",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "crew on shift"
+  },
+  {
+   "name": "throughput",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "throughput"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional extrusion runs; target is throughput, noisier at high feed rates.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "a3fffa727b26abea087db30d1758757258ec9d198ecb86a403b99feac6bd45a9"
+}

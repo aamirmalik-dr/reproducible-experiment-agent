@@ -1,0 +1,80 @@
+{
+ "task_id": "ho-01",
+ "family": "heldout",
+ "generator": "interaction",
+ "seed": 41,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "pass_fail",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "bias_v",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised sensor reading bias_v"
+  },
+  {
+   "name": "gap_nm",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised sensor reading gap_nm"
+  },
+  {
+   "name": "noise_a",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised sensor reading noise_a"
+  },
+  {
+   "name": "noise_b",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised sensor reading noise_b"
+  },
+  {
+   "name": "noise_c",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised sensor reading noise_c"
+  },
+  {
+   "name": "noise_d",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised sensor reading noise_d"
+  },
+  {
+   "name": "chamber",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "deposition chamber"
+  },
+  {
+   "name": "pass_fail",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "pass_fail"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Thin-film devices from a fictional deposition tool; target is pass or fail at electrical test.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "356e4f5d09093cf0032775603a14f873d1510cc961cea19d98174dc1b9a7919a"
+}

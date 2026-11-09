@@ -1,0 +1,74 @@
+{
+ "task_id": "dev-01",
+ "family": "dev",
+ "generator": "linear_logit",
+ "seed": 11,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "defect",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "cure_temp_c",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "oven temperature during curing, C"
+  },
+  {
+   "name": "humidity_pct",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "room humidity at curing, percent; about 10 percent missing"
+  },
+  {
+   "name": "dwell_min",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "time in the oven, minutes"
+  },
+  {
+   "name": "additive_pct",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "additive loading, weight percent"
+  },
+  {
+   "name": "batch_age_days",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "age of the resin batch at use, days"
+  },
+  {
+   "name": "supplier",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "resin supplier region"
+  },
+  {
+   "name": "defect",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "defect"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Coated panels from a fictional curing line; target is whether a panel was rejected for a surface defect at inspection.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "b7cd652ddcda445cff5039aaab92e51b59a0b089e1886bd4c8618ad19536b8cf"
+}

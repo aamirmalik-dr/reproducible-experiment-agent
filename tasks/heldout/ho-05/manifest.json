@@ -1,0 +1,134 @@
+{
+ "task_id": "ho-05",
+ "family": "heldout",
+ "generator": "sparse_linear",
+ "seed": 61,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "conductivity",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "descriptor_01",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_02",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_03",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_04",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_05",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_06",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_07",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_08",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_09",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_10",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_11",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_12",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_13",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_14",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_15",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "descriptor_16",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "standardised composition descriptor"
+  },
+  {
+   "name": "conductivity",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "conductivity"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional electrolyte compositions described by 16 descriptors; target is ionic conductivity in arbitrary units.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "4edbdfd31d79e8acc181bebe44bbfece2c58e246832ec506db4c674061bd4472"
+}

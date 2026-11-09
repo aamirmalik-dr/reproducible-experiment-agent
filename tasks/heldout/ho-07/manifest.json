@@ -1,0 +1,63 @@
+{
+ "task_id": "ho-07",
+ "family": "heldout",
+ "generator": "imbalanced_grouped",
+ "seed": 71,
+ "task_type": "classification",
+ "metric": "log_loss",
+ "target": "contaminated",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "batch",
+   "kind": "categorical",
+   "role": "group",
+   "description": "production batch; the split service keeps batches whole"
+  },
+  {
+   "name": "ph",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "solution pH"
+  },
+  {
+   "name": "turbidity_ntu",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "turbidity, NTU; some readings missing"
+  },
+  {
+   "name": "tank",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "storage tank material"
+  },
+  {
+   "name": "contaminated",
+   "kind": "categorical",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "contaminated",
+  "batch"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Fictional bath samples grouped by batch; target is a positive contamination assay. Positives are rare.",
+ "partition_strategy": "group",
+ "group_column": "batch",
+ "rows": {
+  "train": 223,
+  "dev": 86,
+  "holdout": 51
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "1b6306a4f36fc6d39d210b850730123fbde3f8df5fb0b8af001ccaac14a1c4c4"
+}

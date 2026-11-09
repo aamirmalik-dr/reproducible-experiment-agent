@@ -1,0 +1,74 @@
+{
+ "task_id": "dev-03",
+ "family": "dev",
+ "generator": "friedman",
+ "seed": 21,
+ "task_type": "regression",
+ "metric": "mae",
+ "target": "yield_strength",
+ "columns": [
+  {
+   "name": "__row_id",
+   "kind": "numeric",
+   "role": "id",
+   "description": "row identifier"
+  },
+  {
+   "name": "flow_rate",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "normalised process variable flow rate"
+  },
+  {
+   "name": "pressure",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "normalised process variable pressure"
+  },
+  {
+   "name": "anneal_time",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "normalised process variable anneal time"
+  },
+  {
+   "name": "dopant_ppm",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "normalised process variable dopant ppm"
+  },
+  {
+   "name": "grain_size",
+   "kind": "numeric",
+   "role": "feature",
+   "description": "normalised process variable grain size"
+  },
+  {
+   "name": "test_lab",
+   "kind": "categorical",
+   "role": "feature",
+   "description": "laboratory that ran the tensile test"
+  },
+  {
+   "name": "yield_strength",
+   "kind": "numeric",
+   "role": "target",
+   "description": "prediction target"
+  }
+ ],
+ "forbidden_columns": [
+  "__row_id",
+  "yield_strength"
+ ],
+ "traps": [],
+ "description": "Fictional synthetic data generated for this benchmark. Tensile coupons from a fictional alloy process; target is yield strength in MPa.",
+ "partition_strategy": "random",
+ "group_column": null,
+ "rows": {
+  "train": 216,
+  "dev": 72,
+  "holdout": 72
+ },
+ "duplicate_rows_merged": 0,
+ "train_dev_sha256": "073c4a6ae730cf8b4baa0cef72e4a34a5c05dcde45fe236b38992ecd40296672"
+}
