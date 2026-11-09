@@ -4,7 +4,7 @@ This project evaluates an agent that runs ML experiments, so two different split
 
 | Level | Names | What is split | Who sees what |
 |---|---|---|---|
-| Task families | `dev`, `heldout` | benchmark tasks, by generator | the agent prompt was written while looking only at `dev` tasks; `heldout` tasks come from five generators that `dev` never uses |
+| Task families | `dev`, `heldout`, `heldout_v2` | benchmark tasks, by generator | the agent prompt was written while looking only at `dev` tasks; `heldout` tasks come from five generators that `dev` never uses; `heldout_v2` (added for the second round, after the v2 fixes were committed) comes from five more generators that no earlier family uses |
 | Row partitions | `train`, `dev`, `holdout` | rows inside one ML task | trials fit on `train` and score on `dev`; `holdout` rows exist only in `evaluator/holdout/` |
 
 The word `dev` appears at both levels on purpose: at the family level it means "tasks used while developing the agent", at the row level it means "rows used for model selection". Code always qualifies it (`family="dev"` versus `parts.dev`).
