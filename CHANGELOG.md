@@ -32,7 +32,7 @@ Live results with `anthropic/claude-sonnet-4.6` (1 run):
 
 Figures:
 - `scripts/make_figures.py` draws every figure from saved task results, trial results and traces.
-- The current set is publication-style:
+- The current set:
   - Figure 1:
     - (a) per-task holdout gain;
     - (b) best dev gain so far by trial index;
